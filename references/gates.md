@@ -80,6 +80,7 @@ Item impossível/não-aplicável → registrar o porquê no Decision Log e segui
 - [ ] Todos os P0s resolvidos e verificados com evidência
 - [ ] P1s resolvidos ou com plano documentado e data estimada
 - [ ] Nenhuma falha nova introduzida (verificado via `/vd-check`)
+- [ ] Teste smoke cobrindo os P0 corrigidos, onde tecnicamente viável
 - [ ] Commit feito após cada correção
 
 ### Gate R5→Verde (Graduação)

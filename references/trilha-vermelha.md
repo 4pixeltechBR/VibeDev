@@ -57,7 +57,7 @@ Regra: nunca misturar P0 com P3 na mesma sessão. Foco sequencial.
 Saída obrigatória: **Lista de Triagem** no PROJECT_STATE.md com todos os
 problemas classificados.
 
-Gate para R2: Lista de Triagem aprovada pelo usuário.
+Gate para R3: Lista de Triagem aprovada pelo usuário.
 
 ---
 
@@ -89,6 +89,10 @@ Protocolo obrigatório para cada correção:
 3. **Uma correção por vez** — nunca refatorar arquivo A enquanto corrige B
 4. **Execute `/vd-check`** após cada correção antes de partir para a próxima
 5. **Se o check falhar:** reverta para o commit anterior, analise, tente novamente
+6. **P0/P1 corrigido → deixe um teste smoke** cobrindo o caminho que
+   quebrava, sempre que for tecnicamente viável. Sem isso, a próxima
+   sessão (ou o `/vd-compact` arquivando esta fase) perde a garantia
+   de que ficou corrigido — vira afirmação, não evidência.
 
 Ordem de correção recomendada:
 1. Segurança (senhas/chaves expostas)

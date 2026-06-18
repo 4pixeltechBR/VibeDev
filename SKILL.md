@@ -8,7 +8,7 @@ description: >
   Antigravity, OpenCode, Codex e qualquer AI coding assistant.
   SEMPRE ative quando o usuário mencionar: novo projeto, quero construir,
   meu projeto está uma bagunça, preciso organizar meu código, vibe coding,
-  /vd-start, /vd-status, /vd-plan, /vd-build, /vd-check, /vd-close,
+  /vd-start, /vd-status, /vd-plan, /vd-build, /vd-check, /vd-close, /vd-compact,
   ou quando existir PROJECT_STATE.md na raiz do projeto.
 ---
 
@@ -58,7 +58,7 @@ Detecte o ambiente e crie o arquivo de configuração correto:
 |----------|---------------|
 | Claude Code | `CLAUDE.md` |
 | Cursor | `.cursorrules` |
-| Antigravity | `ANTIGRAVITY.md` |
+| Antigravity | `AGENTS.md` |
 | OpenCode | `OPENCODE.md` |
 | Codex | `CODEX.md` |
 | Outro / Desconhecido | `AI_CONTEXT.md` |
@@ -97,8 +97,8 @@ Passos obrigatórios:
 4. Para cada Tipo 1 identificado: apresente 3 opções com prós, contras e
    custos ocultos. Aplique Red Team na opção recomendada (ver `references/`).
 5. Para cada sub-tarefa, estime esforço relativo: 🟢 pequeno (~15 min),
-   🟡 médio (~1h), 🔴 grande (~2h+). Isso ajuda o usuário a planejar a
-   sessão e decidir onde parar.
+   🟡 médio (~1h), 🔴 grande (~2h+). Estimativa grosseira — ajuda a
+   planejar a sessão e decidir onde parar, não é compromisso de tempo.
 6. Defina o critério de "pronto" para cada sub-tarefa ANTES do código:
    "está concluído quando [comportamento observável acontece]".
 7. Apresente o plano completo formatado.
@@ -118,6 +118,7 @@ Regras de execução:
 - **Teste mínimo obrigatório:** ao concluir o fluxo principal (ou a cada
   sub-tarefa que implementa endpoint/função crítica), escreva pelo menos
   1 teste smoke cobrindo o happy path. Sem teste = sub-tarefa incompleta.
+  Quem escreve o teste é o agente — o usuário nunca precisa saber escrever um.
 - Proibido: `except: pass`, TODO vazio, magic numbers sem contexto,
   features além do escopo da sub-tarefa (ideias boas → backlog).
 - Ao concluir cada sub-tarefa: informe o usuário e aguarde confirmação
@@ -154,9 +155,55 @@ Executa nesta ordem:
    - O que monitorar
 3. Verifica métricas do framework (retrabalho, drift, gates_reprovados) e
    incrementa se algum evento ocorreu.
-4. Confirma: "Sessão encerrada. Na próxima sessão, comece com `/vd-status`."
+4. **Verifica elegibilidade de compactação** (critérios completos em `/vd-compact`):
+   - Decisões Tipo 2 de fases já fechadas (`[x]`) ≥ 15 linhas no Decision Log?
+   - Trilha Vermelha, fase atual passou de R2 e o Mapa do Caos ainda não
+     foi arquivado?
+   - Trilha Vermelha, Gate R4→R5 já passou e existem linhas "Resolvido"
+     na Lista de Triagem ainda não arquivadas?
+   - Algum item verdadeiro → sugira: *"O estado está crescendo — quer
+     compactar agora? (`/vd-compact`)"*. Sim → execute a compactação aqui
+     mesmo, antes do passo 5. Não/depois → segue o fechamento normal.
+5. Confirma: "Sessão encerrada. Na próxima sessão, comece com `/vd-status`."
 
 Sem este comando, a continuidade na próxima sessão é frágil.
+
+---
+
+### `/vd-compact`
+**Manutenção — arquiva o que a fase já fechada não precisa mais no dia a
+dia. Opcional, não faz parte do ciclo obrigatório. Sugerido pelo `/vd-close`,
+mas pode ser chamado a qualquer momento.**
+
+Critério de elegibilidade — nunca toca na fase ativa, nunca arquiva sem
+perguntar:
+- Decisões **Tipo 2** do Decision Log pertencentes a fases marcadas `[x]`.
+  Tipo 1 nunca é arquivado — fica permanente no `PROJECT_STATE.md`
+  (Chesterton: sessões futuras precisam do porquê, não só do quê).
+- Trilha Vermelha: Mapa do Caos completo, uma vez que a fase atual já
+  passou de R2 (a informação virou histórico, a Lista de Triagem já
+  é o que importa no dia a dia).
+- Trilha Vermelha: linhas com Status = Resolvido na Lista de Triagem,
+  uma vez que o Gate R4→R5 já passou.
+
+Protocolo:
+1. Liste o que será arquivado, com contagem exata (ex: "23 decisões
+   Tipo 2 da Fase 6, Mapa do Caos completo — 1 bloco").
+2. **Pare e pergunte antes de reescrever qualquer arquivo.** Mesma regra
+   de autorização do resto do framework, sem exceção.
+3. Aprovado → mova o conteúdo integral, palavra por palavra, para
+   `PROJECT_STATE_ARCHIVE.md` (crie a partir de
+   `assets/PROJECT_STATE_ARCHIVE-template.md` se for a primeira execução
+   no projeto), organizado por fase com data de arquivamento.
+4. No `PROJECT_STATE.md`, substitua cada bloco arquivado por 1
+   linha-resumo apontando para a seção correspondente no archive
+   (ex: "Fase 6 — 23 decisões Tipo 2 arquivadas, 0 retrabalho. Detalhe:
+   `PROJECT_STATE_ARCHIVE.md#fase-6`").
+5. Reporte em até 2 linhas: tamanho antes → tamanho depois.
+
+Nunca arquive a fase atual, decisões Tipo 1, métricas, backlog ou
+post-mortems de fase — esses ficam sempre visíveis por serem baratos
+e/ou de alto valor de referência.
 
 ---
 
@@ -167,6 +214,16 @@ Sem este comando, a continuidade na próxima sessão é frágil.
 - Tipo 2 → recomenda UMA opção em 1-2 linhas e executa.
 - Dúvida sobre o tipo → trate como Tipo 1.
 - Proibido abrir leque de opções em Tipo 2 — gera fadiga e mata o ritmo.
+
+**Economia de fala (output):**
+Confirmações de rotina (`/vd-build` concluindo sub-tarefa, `/vd-check`
+aprovando, `/vd-status`) têm teto de 2 linhas por padrão. Parágrafo
+completo só se justifica em: decisão Tipo 1, `/vd-check` reprovando
+(modo DEBUG), ou pedido explícito de "explica melhor"/"detalha".
+Princípio: preserva decisão, omite exploração — mesma lógica do
+`/compact` nativo do Claude Code. Esta regra é a primeira a sofrer
+drift em sessões longas; trate-a com a mesma disciplina do anti-drift
+abaixo.
 
 **Anti-drift:**
 A cada ~10 turnos de trabalho, releia "Fase atual / Sub-tarefa ativa" do
@@ -197,3 +254,11 @@ Leia conforme necessário — não carregue todos de uma vez:
 - `references/stack-guide.md` — recomendações de ferramentas por caso de uso
 - `assets/PROJECT_STATE-green.md` — template de estado para Trilha Verde
 - `assets/PROJECT_STATE-red.md` — template de estado para Trilha Vermelha
+- `assets/PROJECT_STATE_ARCHIVE-template.md` — esqueleto usado pelo
+  `/vd-compact` na primeira execução em cada projeto
+
+> **Escopo de economia de tokens:** este framework cobre a economia
+> *dentro do estado do projeto* (PROJECT_STATE.md, Decision Log, output
+> de comando). Otimização de *ambiente* — settings.json do Claude Code,
+> MCPs, `.claudeignore`, subagentes — é coberta pela skill `token-saver`.
+> As duas são complementares, sem sobreposição.

@@ -6,6 +6,14 @@
 
 ---
 
+## Contexto para novo agente/sessão
+<!-- 3-5 linhas em linguagem natural. Preencha ao final de cada sessão.
+     Se você é uma IA lendo isso pela primeira vez, este bloco é o resumo
+     executivo do que importa AGORA — leia antes de qualquer outra seção. -->
+
+
+---
+
 ## Identidade
 - **Projeto:**
 - **Trilha:** 🟢 Verde (Greenfield)
@@ -41,14 +49,6 @@ Marcação: `[➔]` fase atual · `[x]` concluída · `[ ]` futura
 
 ---
 
-## Contexto para novo agente/sessão
-<!-- 3-5 linhas em linguagem natural. Preencha ao final de cada sessão.
-     Se você é uma IA lendo isso pela primeira vez, este bloco é o resumo
-     executivo do que importa AGORA — leia antes de qualquer outra seção. -->
-
-
----
-
 ## Stack decidida
 - **Linguagem/Framework:**
 - **Banco de dados:**
@@ -59,6 +59,11 @@ Marcação: `[➔]` fase atual · `[x]` concluída · `[ ]` futura
 ---
 
 ## Decision Log (append-only — nunca editar entradas antigas)
+
+*Tipo 1 fica permanente aqui. Tipo 2 de fases já fechadas pode ser
+arquivado pelo `/vd-compact` — ver PROJECT_STATE_ARCHIVE.md se uma
+linha apontar para lá.*
+
 | Data | Tipo | Decisão | Racional | Red Team (se T1) |
 |------|------|---------|----------|------------------|
 | | | | | |
