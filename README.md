@@ -8,7 +8,7 @@
 
 [![VibeDev License](https://img.shields.io/github/license/4pixeltechBR/VibeDev?style=flat-square&color=blue)](LICENSE)
 [![GitHub stars](https://img.shields.io/github/stars/4pixeltechBR/VibeDev?style=flat-square)](https://github.com/4pixeltechBR/VibeDev/stargazers)
-[![Framework Version](https://img.shields.io/badge/version-2.0.0-emerald?style=flat-square)](SKILL.md)
+[![Framework Version](https://img.shields.io/badge/version-2.1.0-emerald?style=flat-square)](SKILL.md)
 
 **VibeDev** is a lightweight, rigorous governance framework specifically designed for AI-driven software development (AI Code Generation / Vibe Coding) without requiring a formal background in software engineering.
 
