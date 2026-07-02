@@ -1,55 +1,73 @@
-# Ecossistema VibeDev + VibeShield
+# 🚀 VibeDev + VibeShield Ecosystem / Ecossistema VibeDev + VibeShield
 
-> Framework de governança para desenvolvimento assistido por IA. Composto por **VibeDev** (orquestrador de ciclo) e **VibeShield** (auditoria de segurança), com suporte nativo a **Modo Leigo** para usuários sem formação em engenharia.
+🌍 **Read in / Leia em:** [English](#-english) | [Português](#-português)
 
-## O que é isso
+---
 
-Um conjunto de **skills** para assistentes de IA que transformam desenvolvimento "vibe coding" (programação dirigida por IA, sem processo) em desenvolvimento com governança. Funciona em Claude Code, Cursor, Antigravity, OpenCode e Codex.
+## 🇺🇸 English
 
-## Estrutura do ecossistema
+[![VibeDev License](https://img.shields.io/github/license/4pixeltechBR/VibeDev?style=flat-square&color=blue)](LICENSE)
+[![GitHub stars](https://img.shields.io/github/stars/4pixeltechBR/VibeDev?style=flat-square)](https://github.com/4pixeltechBR/VibeDev/stargazers)
+[![Framework Version](https://img.shields.io/badge/version-3.0.0-emerald?style=flat-square)](vibedev/SKILL.md)
 
-| Skill | Papel | Quando entra |
+**VibeDev** is a lightweight, rigorous governance framework specifically designed for AI-driven software development (Vibe Coding). Coupled with **VibeShield**, it provides automated security audits and native **Layman Mode** support.
+
+### 🗺️ Ecosystem Structure
+
+| Component | Role | When it triggers |
 |---|---|---|
-| **[VibeDev](./vibedev/)** | Orquestrador do ciclo de desenvolvimento. Define fases, planos, gates, decision log, post-mortems. | Em toda sessão de projeto. |
-| **[VibeShield](./vibeshield/)** | Auditora de segurança. Detecta decisões de auth, dados, API, deploy e dispara análise. | Automaticamente via gatilhos G1-G7 quando VibeDev detecta tópicos de risco. |
+| **[VibeDev](./vibedev/)** | Development cycle orchestrator. Defines phases, plans, gates, and post-mortems. | Every project session. |
+| **[VibeShield](./vibeshield/)** | Security auditor. Detects authentication, database, API, and deploy actions. | Automatically via triggers G1-G7. |
 
-Skills-satélite adicionais (VibeResearch, VibeDebug, VibeIndex) são previstas no roadmap, mas não estão neste release.
+### 🧭 Two Modes of Operation
 
-## Dois modos de operação
+The ecosystem automatically detects user profile via the `modo_usuario` field in `PROJECT_STATE.md`:
+- **`modo_usuario: tecnico`** (default): Formal risk registers, C1-C8 vulnerability categories, and OK/REVIEW/BLOCK verdicts.
+- **`modo_usuario: leigo`** (Layman Mode): Visual progress panel, non-technical natural language questions, 3 recommended options with justifications, and safe fallbacks.
+
+*Note: The written state in `PROJECT_STATE.md` always remains technical. Layman Mode only simplifies the conversational rendering.*
+
+### 🛠️ How to Start
+
+1. Install the skills in your AI environment (see [INSTALL.md](./INSTALL.md)).
+2. Initialize your project with `/vd-start`.
+3. Follow the cycle: `/vd-plan` ➔ approval ➔ `/vd-build` ➔ `/vd-check`.
+4. VibeShield will trigger automatically when security-sensitive code is touched.
+
+---
+
+## 🇧🇷 Português
+
+[![VibeDev License](https://img.shields.io/github/license/4pixeltechBR/VibeDev?style=flat-square&color=blue)](LICENSE)
+[![GitHub stars](https://img.shields.io/github/stars/4pixeltechBR/VibeDev?style=flat-square)](https://github.com/4pixeltechBR/VibeDev/stargazers)
+[![Versão do Framework](https://img.shields.io/badge/vers%C3%A3o-3.0.0-emerald?style=flat-square)](vibedev/SKILL.md)
+
+O **VibeDev** é um framework leve e rigoroso de governança para desenvolvimento assistido por IA (Vibe Coding). Integrado ao **VibeShield**, oferece auditorias automáticas de segurança e suporte nativo a **Modo Leigo**.
+
+### 🗺️ Estrutura do Ecossistema
+
+| Componente | Papel | Quando entra |
+|---|---|---|
+| **[VibeDev](./vibedev/)** | Orquestrador de ciclo de desenvolvimento. Define fases, planos, gates e post-mortems. | Em toda sessão do projeto. |
+| **[VibeShield](./vibeshield/)** | Auditor de segurança. Detecta ações de autenticação, banco de dados, API e deploy. | Automaticamente via gatilhos G1-G7. |
+
+### 🧭 Dois Modos de Operação
 
 O ecossistema detecta automaticamente o perfil do usuário através do campo `modo_usuario` em `PROJECT_STATE.md`:
+- **`modo_usuario: tecnico`** (padrão): Registro de riscos formal, categorias de vulnerabilidade C1-C8 e vereditos OK/REVISAR/BLOQUEAR.
+- **`modo_usuario: leigo`**: Painel visual de progresso, perguntas em linguagem simples, 3 opções recomendadas com justificativa e caminhos padrão seguros.
 
-- **`modo_usuario: tecnico`** (padrão): Risk register formal com categorias técnicas C1-C8, gatilhos G#, verdicts `OK/REVISAR/BLOQUEAR`. Pensado para engenheiros.
-- **`modo_usuario: leigo`**: Painel visual, perguntas em linguagem natural, 3 opções com recomendação explícita, fallback quando o usuário trava. Pensado para pessoas sem formação técnica.
+*Nota: O estado persistido em `PROJECT_STATE.md` continua técnico. O Modo Leigo altera apenas a renderização conversacional.*
 
-**Invariante**: o conteúdo escrito em `PROJECT_STATE.md` é sempre técnico. O modo leigo é só renderização. Dev que auditar abre o arquivo e vê o rigor.
+### 🛠️ Como Começar
 
-## Quem deve usar
+1. Instale as skills no seu ambiente de IA (veja [INSTALL.md](./INSTALL.md)).
+2. Inicie o projeto com `/vd-start`.
+3. Siga o ciclo: `/vd-plan` ➔ aprovação ➔ `/vd-build` ➔ `/vd-check`.
+4. A VibeShield é ativada sozinha quando código sensível for detectado.
 
-- **Dev solo** (engenheiro ou júnior) que quer parar de "Accept All" código de IA sem entender.
-- **Indie hacker** que quer lançar produto sem cair em débito técnico de 90 dias.
-- **Pessoa leiga** (não-dev) que quer construir um app sem ter que virar dev antes.
-- **Time pequeno** que precisa de um "sign-off sênior" automatizado para código AI-assistido (similar à política recente da Amazon).
+---
 
-## Como começar
+## 📄 License & Terms / Licença & Termos
 
-1. **Instale** a skill no seu ambiente de IA (veja [INSTALL.md](./INSTALL.md)).
-2. **Inicie um projeto** com `/vd-start`.
-3. **Siga o ciclo**: `/vd-plan` → aprovação → `/vd-build` → `/vd-check`.
-4. **VibeShield ativa sozinha** quando você tocar em auth/dados/API/deploy.
-
-Para detalhes, veja o [MANUAL.md](./MANUAL.md).
-
-## Repositório
-
-Skills-versionadas em releases semver:
-- VibeDev: `[3.0.0](./vibedev/CHANGELOG.md)` — adicionou suporte a Modo Leigo e ponte `references/handoffs.md`.
-- VibeShield: `[1.0.0](./vibeshield/CHANGELOG.md)` — release inicial.
-
-## Licença
-
-MIT. Veja [LICENSE](./LICENSE).
-
-## Aviso
-
-VibeShield é análise por padrões conhecidos. Não substitui pentest humano, scanner real ou revisão manual de AppSec profissional. É um par de olhos adversarial com vocabulário consistente.
+MIT License. See [LICENSE](./LICENSE) for details. / Licença MIT. Detalhes em [LICENSE](./LICENSE).
