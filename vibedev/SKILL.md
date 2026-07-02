@@ -66,9 +66,28 @@ Detecte o ambiente e crie o arquivo de configuração correto:
 Conteúdo do arquivo criado: instrução curta — "Leia e siga PROJECT_STATE.md
 na raiz deste projeto antes de qualquer ação. Framework VibeDev ativo."
 
-Depois crie `PROJECT_STATE.md` usando o template em `assets/`.
+Depois crie `PROJECT_STATE.md` usando o template apropriado em `assets/`:
+
+| Perfil do usuário | Template |
+|---|---|
+| Dev com formação em engenharia | `PROJECT_STATE-green.md` (Trilha Verde) ou `PROJECT_STATE-red.md` (Trilha Vermelha) |
+| Pessoa leiga (sem formação em engenharia) | `PROJECT_STATE-green-leigo.md` (só Trilha Verde; Trilha Vermelha não recomendada) |
+
+**Como decidir**: pergunte educadamente no início se ele tem formação em 
+engenharia/programação. Se sim → template técnico. Se não → template leigo.
+Pode perguntar em linguagem natural: "Você já programou antes ou essa é sua 
+primeira vez construindo um app?". Resposta "nunca programei" ou "tô 
+começando" → leigo. Resposta "sou dev / já programei" → técnico.
+
+**Importante**: o campo `modo_usuario` no `PROJECT_STATE.md` que você criar 
+controla se VibeShield e futuras skills-satélite operam em Modo Técnico 
+(`tecnico`) ou Modo Leigo (`leigo`). Esse campo é o gatilho de detecção 
+em todas as skills-satélite.
+
 Leia `references/trilha-verde.md` ou `references/trilha-vermelha.md`
-conforme a trilha diagnosticada.
+conforme a trilha diagnosticada. Para o template leigo, o conteúdo de 
+`trilha-verde.md` precisa ser renderizado em linguagem simples — adapte, 
+não invente do zero.
 
 ---
 
