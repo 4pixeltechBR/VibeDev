@@ -8,6 +8,25 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ---
 
+## [3.2.0] — 2026-07-09
+
+### Added / Adicionado
+
+- **VibeDev v1.3.0**: Quality-of-life additions for the long middle of projects.
+  - ⏱️ **Estimativa de Tempo por Categoria** (`references/tempo-construcao.md`) — calibrates expectations before `/vd-start`. See [release notes](./docs/releases/v3.2.0.md).
+  - 🛡️ **Anti-Feature-Creep** (`references/anti-creep.md`) — 3-layer scope containment during `/vd-build`. Ideas land in backlog, not in code.
+  - 🎯 **Reconhecimento & Pausa** — embedded rituals for sober progress acknowledgment and pause prompts at phase gates. Anti-burnout, anti-guilt.
+
+### Backward compatible / Sem quebra de compatibilidade
+
+- All new behaviors are passive — they surface only when relevant. No command changed.
+- Time estimates only appear in layman mode; technical mode users see no change in `/vd-start` flow.
+- Recognition rituals are factual, one-line, opt-out by user request.
+
+[3.2.0]: https://github.com/4pixeltechBR/VibeDev/releases/tag/v3.2.0
+
+---
+
 ## [3.1.0] — 2026-07-08
 
 ### Added / Adicionado

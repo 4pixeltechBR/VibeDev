@@ -33,6 +33,12 @@ The ecosystem automatically detects user profile via the `modo_usuario` field in
 - 💰 **Guarda de Custo** — mandatory 3-tier monthly cost estimation before leaving Phase 3 (see `vibedev/references/estimativa-custos.md`).
 - 🪦 **`/vd-kill`** — graceful project termination command, archives state to `IDEA_LOG.md` instead of deleting. Anti-guilt.
 
+### 🆕 What's new in v3.2.0
+
+- ⏱️ **Estimativas de Tempo Calibradas** — realistic construction time by project category, surfaced before `/vd-start` (see `vibedev/references/tempo-construcao.md`).
+- 🛡️ **Anti-Feature-Creep** — 3-layer scope containment during `/vd-build`. Ideas land in backlog, not in code (see `vibedev/references/anti-creep.md`).
+- 🎯 **Reconhecimento & Pausa** — embedded rituals for sober progress acknowledgment + pause prompts at phase gates. Anti-burnout, anti-guilt.
+
 ### 🛠️ How to Start
 
 1. Install the skills in your AI environment (see [INSTALL.md](./INSTALL.md)).
@@ -70,6 +76,12 @@ O ecossistema detecta automaticamente o perfil do usuário através do campo `mo
 - 📖 **Glossário Ativo** — traduz jargão automaticamente no Modo Leigo (ver `vibedev/references/glossario-leigo.md`).
 - 💰 **Guarda de Custo** — estimativa de custo mensal obrigatório em 3 portes antes de sair da Fase 3 (ver `vibedev/references/estimativa-custos.md`).
 - 🪦 **`/vd-kill`** — comando de encerramento digno do projeto, arquiva o estado em `IDEA_LOG.md` em vez de apagar. Anti-culpa.
+
+### 🆕 O que tem de novo no v3.2.0
+
+- ⏱️ **Estimativas de Tempo Calibradas** — tempo realista de construção por categoria de projeto, apresentado antes do `/vd-start` (ver `vibedev/references/tempo-construcao.md`).
+- 🛡️ **Anti-Feature-Creep** — contenção de escopo em 3 camadas durante `/vd-build`. Ideias vão pro backlog, não pro código (ver `vibedev/references/anti-creep.md`).
+- 🎯 **Reconhecimento & Pausa** — rituais embutidos de reconhecimento sóbrio de progresso + prompts de pausa em gates de fase. Anti-burnout, anti-culpa.
 
 ### 🛠️ Como Começar
 
