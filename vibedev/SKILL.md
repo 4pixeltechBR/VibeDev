@@ -28,12 +28,35 @@ início de toda sessão. Conversa contradiz arquivo → arquivo vence, sinalize.
 ## Protocolo de sessão (obrigatório, nesta ordem)
 
 1. **Boot:** procure `PROJECT_STATE.md` na raiz.
-   - Existe → leia integralmente. Resuma em 3 linhas: trilha ativa, fase
-     atual, próximo passo. Confirme com o usuário antes de continuar.
-   - Não existe → execute `/vd-start` (Bootstrap abaixo).
+   - Existe → leia integralmente.
+   - Leia também `modo_usuario` (campo dentro do estado).
+   - **Se `modo_usuario: leigo`:** carregue `references/glossario-leigo.md`
+     e ative **Glossário Ativo** — toda saída sua passa pela tabela de
+     tradução automaticamente. Sem perguntar, sem avisar, só faz.
+     Para leigo, resuma em **3 linhas simples** (trilha ativa, fase atual,
+     próximo passo) — sem jargão. Confirme com o usuário antes de continuar.
+   - Se `modo_usuario: tecnico` (ou vazio): opere no modo padrão,
+     resuma em 3 linhas técnicas. Confirme com o usuário antes de continuar.
+   - Não existe `PROJECT_STATE.md` → execute `/vd-start` (Bootstrap abaixo).
 2. **Trabalho:** opere apenas dentro da sub-tarefa ativa registrada no estado.
+   - Toda saída (status, plano, gate, check) passa pelo Glossário Ativo
+     se modo for leigo. Sem exceção.
 3. **Commit de estado:** ao concluir sub-tarefa ou ao fim da sessão →
    atualize `PROJECT_STATE.md`. Nunca encerre sem atualizar.
+
+### Glossário Ativo (regra de execução — modo leigo)
+
+Quando `modo_usuario: leigo` estiver marcado:
+- **Substitua termo técnico pela tradução humana** em TODA saída.
+- **Nomes próprios de tecnologia ficam como estão** (Python, Postgres, etc.) —
+  o problema não é o nome, é o conceito por trás.
+- **Termo não listado:** traduza inline na hora + adicione ao
+  `references/glossario-leigo.md` em silêncio, sem perguntar.
+- **Aplicar em:** `/vd-status`, `/vd-plan`, `/vd-build`, gates, `/vd-check`,
+  `/vd-close`, `/vd-kill`, mensagens intermediárias, perguntas.
+- **Telemetria honesta:** se você não consegue traduzir sem usar outro
+  termo técnico, está simplificando pouco. Tente de novo.
+- **Teste mental:** um adulto sem formação em TI lê e entende sozinho.
 
 ---
 
@@ -83,6 +106,95 @@ começando" → leigo. Resposta "sou dev / já programei" → técnico.
 controla se VibeShield e futuras skills-satélite operam em Modo Técnico 
 (`tecnico`) ou Modo Leigo (`leigo`). Esse campo é o gatilho de detecção 
 em todas as skills-satélite.
+
+---
+
+## Guarda de Custo (regra universal — VibeDev inteiro)
+
+**Gatilho:** ao final da Fase 3 (Arquitetura), antes de promover pra Fase 4
+(ou equivalente). Para Trilha Vermelha, mesma regra ao fechar R3 (Diagnóstico
++ decisão de stack).
+
+**Obrigatório:** tabela `custo_mensal_estimado` no `PROJECT_STATE.md`
+preenchida com 3 portes (1-10, 10-100, 100-1000 usuários), em BRL/mês.
+
+**Referência de valores:** `references/estimativa-custos.md` (carregue
+sempre que chegar nesse ponto).
+
+**Comportamento da IA:**
+
+1. Ao entrar na Fase 3 (ou detectar aproximação do gate), **transparente**:
+   declare "Antes de escolher ferramentas, vamos ver o que isso vai custar
+   por mês pra rodar. São 3 cenários por porte de usuários."
+2. Carregue `references/estimativa-custos.md`.
+3. Identifique a categoria do projeto (landing, SaaS, bot, app interno, app mobile).
+4. Apresente os 3 cenários usando o glossário ativo (se leigo).
+5. Pergunte: "Algum desses 3 cenários já estoura o que você pode bancar?"
+6. Se estourar → volte pra Fase 2 (Especificação), reduza escopo, recalcule.
+7. Se não estourar → registre no `PROJECT_STATE.md` e siga.
+8. Se o usuário quiser pular → respeite (decisão humana > regra), mas **registre**
+   no Decision Log: "custo mensal estimado foi pulado por decisão do usuário
+   em [data]". Sem julgamento.
+
+**Modo leigo (regra extra):** use a frase modelo
+*"vou te mostrar o que isso custa por mês pra ficar no ar — sem compromisso
+de gastar nada agora"* antes de apresentar os cenários. Sempre enquadre
+como simulação, não orçamento.
+
+**Modo técnico:** pode usar valores em USD e comparar serviços por feature;
+mantém a regra dos 3 portes.
+
+**Gate Fase 3 → 4:** se o campo `custo_mensal_estimado` estiver vazio ou
+incompleto no estado, **não promova**. Ofereça a simulação de novo, ou
+registre a recusa do usuário no log.
+
+---
+
+## `/vd-kill` — Encerramento autorizado do projeto
+
+Reconhece que **nem toda ideia vale continuar**. Sair com dignidade é tão
+importante quanto terminar. É o anti-culpa do VibeDev.
+
+**Quando usar:**
+
+- O usuário declara explicitamente que quer desistir ("não quero mais", "vou
+  matar", "isso não vale a pena").
+- O custo mensal estimado estourou o orçamento em qualquer porte e o usuário
+  não quer cortar escopo.
+- O kill criteria da Fase 1 foi atingido e o usuário confirma.
+- O projeto não anda há 90+ dias sem decisão nova.
+
+**O que o comando faz (nesta ordem):**
+
+1. Confirma a decisão com 1 frase clara: "Você quer encerrar esse projeto
+   agora. Certo?" (aguarda confirmação).
+2. Cria ou atualiza `IDEA_LOG.md` na raiz (somente se não existir) com:
+   - Nome do projeto
+   - Fase em que parou
+   - 3 perguntas reflexivas:
+     - **O que eu achava que essa ideia resolvia?** (problema de verdade)
+     - **O que eu aprendi tentando?** (3 bullets)
+     - **Tem um caminho menor que eu poderia tentar primeiro?** (próximo
+       passo viável, ou "não — encerra de vez")
+   - Data de encerramento
+3. Move o `PROJECT_STATE.md` pra `IDEA_LOG_<nome>_<data>.md` (mantém histórico).
+4. Confirma: "Arquivado. Quando quiser voltar do zero, faça `/vd-start`
+   de novo. O aprendizado ficou salvo."
+
+**O que NÃO é o `/vd-kill`:**
+
+- Não é fracasso. É reconhecimento de que algo não vale agora.
+- Não é "começar tudo de novo amanhã". É registro + fim.
+- Não apaga nada que já foi construído. Tudo vai pro `IDEA_LOG.md`.
+
+**Modo leigo (regra extra):** use tom direto, sem floreio. "Você tá parando
+de construir isso. Tudo bem. Vamos salvar o que você aprendeu pra próxima
+ideia não ser tão dura." Sem julgamento moral.
+
+**Modo técnico:** fica seco e objetivo. Sem célébration nem lamentar.
+É um comando como outro qualquer, registra e segue.
+
+---
 
 Leia `references/trilha-verde.md` ou `references/trilha-vermelha.md`
 conforme a trilha diagnosticada. Para o template leigo, o conteúdo de 

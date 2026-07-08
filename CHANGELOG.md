@@ -8,6 +8,25 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ---
 
+## [3.1.0] — 2026-07-08
+
+### Added / Adicionado
+
+- **VibeDev v1.2.0**: Layman-friendly additions for non-technical users building their first AI-assisted project.
+  - **Glossário Ativo** (`references/glossario-leigo.md`) — auto-translates jargon into plain language whenever `modo_usuario: leigo` is set. See [release notes](./docs/releases/v3.1.0.md).
+  - **Guarda de Custo** — mandatory cost estimation (3 user tiers in BRL/month) before leaving Phase 3. Reference table in `references/estimativa-custos.md`.
+  - **`/vd-kill`** — authorized project termination command. Archives state into `IDEA_LOG.md`, never deletes. The anti-guilt command.
+  - **`IDEA_LOG-template.md`** — template for archive of completed/archived projects.
+
+### Backward compatible / Sem quebra de compatibilidade
+
+- Existing projects in technical mode are unaffected. Layman Mode additions only activate under `modo_usuario: leigo`.
+- All new commands and fields are opt-in. No file deletion or migration required.
+
+[3.1.0]: https://github.com/4pixeltechBR/VibeDev/releases/tag/v3.1.0
+
+---
+
 ## [3.0.0] — 2026-07-02
 
 ### Added / Adicionado

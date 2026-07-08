@@ -49,9 +49,32 @@ Marcação: `[➔]` fase atual · `[x]` concluída · `[ ]` futura
 |---|---|---|
 | 1 — Entender o problema | Conversar sobre o que você quer, pra quem, e como vai saber que deu certo | "Quero um app onde meus amigos marcam presença no rolê" |
 | 2 — Decidir como construir | Escolher ferramentas (linguagem, banco, hospedagem), com a ajuda do framework explicando prós e contras | "Vai usar Node.js porque tem mais gente que conhece" |
-| 3 — Construir com cuidado | Escrever o código **com** decisões de segurança do começo. VibeShield entra aqui pra te ajudar. | "Login com Google funcionando, dados guardados com cuidado" |
+| 3 — Construir com cuidado | Escrever o código **com** decisões de segurança do começo. VibeShield entra aqui pra te ajudar. **Aqui também se discute custo mensal de manter isso rodando.** | "Login com Google funcionando, dados guardados com cuidado" |
 | 4 — Testar | Conferir se funciona, se as travas tão ativas, se você entende o que tá pronto | "Posso logar, criar post, ver post, deslogar. Tudo certo?" |
 | 5 — Colocar no ar | Publicar pro mundo, com HTTPS, monitorando erros | "Site no ar em meusite.com.br" |
+
+---
+
+## Custo mensal estimado (obrigatório fechar na Fase 3)
+
+> Antes de escolher as ferramentas, você e a IA precisam fechar o custo
+> estimado de manter o produto funcionando DEPOIS de pronto. Sem isso,
+> o projeto pode crescer e o susto da conta chegar no fim do mês.
+> Referência de valores: `references/estimativa-custos.md`.
+
+| Porte de usuários | Custo estimado (BRL/mês) |
+|---|---|
+| 1-10 (validação inicial) | R$ |
+| 10-100 (crescimento inicial) | R$ |
+| 100-1000 (operação) | R$ |
+
+- **Quem paga:** 
+- **Decisão registrada em:** AAAA-MM-DD
+- **Premissas:** 
+- **Riscos de explosão de custo:** 
+
+> ⚠️ Gate da Fase 3 → 4 **não passa** sem essa tabela preenchida.
+> Se quiser pular, registre no log de decisões que pulou (decisão humana).
 
 ---
 

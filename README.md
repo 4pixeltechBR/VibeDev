@@ -23,9 +23,15 @@
 
 The ecosystem automatically detects user profile via the `modo_usuario` field in `PROJECT_STATE.md`:
 - **`modo_usuario: tecnico`** (default): Formal risk registers, C1-C8 vulnerability categories, and OK/REVIEW/BLOCK verdicts.
-- **`modo_usuario: leigo`** (Layman Mode): Visual progress panel, non-technical natural language questions, 3 recommended options with justifications, and safe fallbacks.
+- **`modo_usuario: leigo`** (Layman Mode): Auto-translated jargon (Glossary), mandatory cost estimation (Cost Guard), and `/vd-kill` for graceful exit.
 
 *Note: The written state in `PROJECT_STATE.md` always remains technical. Layman Mode only simplifies the conversational rendering.*
+
+### 🆕 What's new in v3.1.0
+
+- 📖 **Glossário Ativo** — auto-translates jargon in Layman Mode (see `vibedev/references/glossario-leigo.md`).
+- 💰 **Guarda de Custo** — mandatory 3-tier monthly cost estimation before leaving Phase 3 (see `vibedev/references/estimativa-custos.md`).
+- 🪦 **`/vd-kill`** — graceful project termination command, archives state to `IDEA_LOG.md` instead of deleting. Anti-guilt.
 
 ### 🛠️ How to Start
 
@@ -55,9 +61,15 @@ O **VibeDev** é um framework leve e rigoroso de governança para desenvolviment
 
 O ecossistema detecta automaticamente o perfil do usuário através do campo `modo_usuario` em `PROJECT_STATE.md`:
 - **`modo_usuario: tecnico`** (padrão): Registro de riscos formal, categorias de vulnerabilidade C1-C8 e vereditos OK/REVISAR/BLOQUEAR.
-- **`modo_usuario: leigo`**: Painel visual de progresso, perguntas em linguagem simples, 3 opções recomendadas com justificativa e caminhos padrão seguros.
+- **`modo_usuario: leigo`**: Jargão traduzido automaticamente (Glossário), estimativa de custo obrigatória (Guarda de Custo), e `/vd-kill` pra encerramento digno.
 
 *Nota: O estado persistido em `PROJECT_STATE.md` continua técnico. O Modo Leigo altera apenas a renderização conversacional.*
+
+### 🆕 O que tem de novo no v3.1.0
+
+- 📖 **Glossário Ativo** — traduz jargão automaticamente no Modo Leigo (ver `vibedev/references/glossario-leigo.md`).
+- 💰 **Guarda de Custo** — estimativa de custo mensal obrigatório em 3 portes antes de sair da Fase 3 (ver `vibedev/references/estimativa-custos.md`).
+- 🪦 **`/vd-kill`** — comando de encerramento digno do projeto, arquiva o estado em `IDEA_LOG.md` em vez de apagar. Anti-culpa.
 
 ### 🛠️ Como Começar
 
