@@ -8,6 +8,39 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ---
 
+## [1.5.0] — 2026-07-11
+
+### Added / Adicionado
+
+- **Modo País genérico** (`references/modo-pais.md`). Substitui `brasil.md` e cobre 12 países com detecção por sinais combinados (TLD + moeda + idioma + gateway + fuso): 🇧🇷 BR, 🇵🇹 PT, 🇺🇸 US, 🇬🇧 GB, 🇲🇽 MX, 🇦🇷 AR, 🇨🇱 CL, 🇨🇳 CN, 🇷🇺 RU, 🇺🇦 UA, 🇪🇺 EU, 🇯🇵 JP. CN/RU/UA marcados como **experimental** com disclaimer jurídico reforçado (PIPL + 152-ФЗ + conflito armado).
+- **Onboarding Tour** (`references/onboarding-leigo.md`). 3 mensagens curtas mostrado **só na primeira sessão** de projeto novo em modo leigo. Reconhece a chegada, mapeia 5 fases visualmente, oferece escolha binária (zero vs bagunça).
+- **Painel Visual de Progresso** (`references/painel-progresso.md`). Render alternativo do `/vd-status` com barra de progresso, trilha mapeada, conquistas e custo. Ativado em modo leigo, em ASCII puro (sem cor).
+- **Decisão Confiante por Padrão** (em `SKILL.md`). Quando leigo não consegue avaliar opções técnicas, IA escolhe a recomendada com justificativa de 1 linha + registra delegação. Evita "escolhe você" virar padrão silencioso.
+- **Validação Anti-"tá"** (no `/vd-check`). Respostas vagas ("tá", "deve tá", "acho que sim") **não** contam como aprovação. Reformula com evento observável específico.
+- **Recap Automático** (`references/recap-automatico.md`). Quando leigo volta 7+ dias depois, `/vd-status` expande em recap + 3 opções (continuar / revisar / replanejar). 90+ dias → sugere `/vd-kill` ou redescobrir.
+- **Coleta Assistida de Features** (`references/coleta-features-assistida.md`). Substitui pedido aberto "liste 10 features testáveis" por 3 perguntas conversacionais (fluxo principal / o que não quero / anti-escopo). Alimenta `/vd-plan` formal automaticamente.
+
+### Removed / Removido
+
+- `references/brasil.md` — substituído por `modo-pais.md` (que contém BR como seção).
+
+### Changed / Modificado
+
+- `SKILL.md` agora referencia o conjunto completo de referências em seção própria, organizada por categoria (Trilhas / Layman Mode / Modo País / Launch / Integrações).
+- `/vd-status`, `/vd-plan`, `/vd-check` documentados com modo leigo e regras de auto-ativação.
+
+### Backward compatible / Sem quebra de compatibilidade
+
+- BR continua funcionando idêntico — só migrou de arquivo.
+- Onboarding só roda primeira sessão; projetos existentes não veem tour.
+- Validação reforçada afeta **só** o que entrar no `/vd-check`. Builds não mudam.
+- Recap depende do campo `ultima_sessao_em` que é opt-in (adicionado pelo `/vd-close`).
+- Coleta assistida só ativa se `modo_usuario: leigo`. Devs mantém fluxo padrão.
+
+[1.5.0]: https://github.com/4pixeltechBR/VibeDev/releases/tag/v3.4.0
+
+---
+
 ## [1.4.0] — 2026-07-10
 
 ### Added / Adicionado

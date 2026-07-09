@@ -8,6 +8,33 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ---
 
+## [3.4.0] — 2026-07-11
+
+### Added / Adicionado
+
+- **VibeDev v1.5.0**: Layman total hardening + Modo País generic.
+  - 🌍 **Modo País** generico — 12 países. Substitui `brasil.md`. See [release notes](./docs/releases/v3.4.0.md).
+  - 👋 **Onboarding Tour** — 3 mensagens na primeira sessão pro leigo entender o framework.
+  - 📊 **Painel Visual de Progresso** — `/vd-status` com barra visual ASCII pro leigo.
+  - 🤝 **Decisão Confiante** — IA escolhe default pro leigo que não consegue avaliar opções técnicas.
+  - 🛡️ **Validação Anti-"tá"** — `/vd-check` recusa aprovação vaga.
+  - 🔄 **Recap Automático** — após 7+ dias fora, `/vd-status` expande em recap.
+  - 💬 **Coleta Assistida de Features** — `/vd-plan` começa com 3 perguntas conversacionais.
+
+### Changed / Modificado
+
+- Modo País substituted Brasil file with generic 12-country system.
+- SKILL.md indexed all references by category.
+
+### Backward compatible / Sem quebra de compatibilidade
+
+- BR funciona identicamente — só migrou de arquivo.
+- Novas regras só ativam em modo leigo + sinais específicos.
+
+[3.4.0]: https://github.com/4pixeltechBR/VibeDev/releases/tag/v3.4.0
+
+---
+
 ## [3.3.0] — 2026-07-10
 
 ### Added / Adicionado

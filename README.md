@@ -45,6 +45,16 @@ The ecosystem automatically detects user profile via the `modo_usuario` field in
 - 🚀 **`/vd-launch`** — post-Phase-7 communication blocks (elevator pitch, 3 tweet variants, LinkedIn post, landing page structure, beta email, private post-mortem) + 24h pre-launch checklist in `vibedev/assets/launch/`.
 - 🇧🇷 **Modo Brasil** — auto-activated when pt-BR / BR context detected. BRL, Pix-first, LGPD explicit, BR hosting options. See `vibedev/references/brasil.md`.
 
+### 🆕 What's new in v3.4.0 (Layman Total + Country Mode)
+
+- 🌍 **Country Mode generic** — 12 countries auto-detected by signals (TLD + currency + gateway + timezone). Replaces `brasil.md`. See `vibedev/references/modo-pais.md`.
+- 👋 **Onboarding Tour** — 3 messages in the first session for laymen (see `vibedev/references/onboarding-leigo.md`).
+- 📊 **Visual Progress Panel** — `/vd-status` renders an ASCII progress bar + phase checklist for laymen (see `vibedev/references/painel-progresso.md`).
+- 🤝 **Confident Default Decision** — IA chooses with 1-line justification when layman can't evaluate Type 1 options.
+- 🛡️ **Anti-"it's fine" validation** — `/vd-check` refuses vague approval.
+- 🔄 **Automatic Recap** — 7+ days gone = extended `/vd-status` with options.
+- 💬 **Assisted Feature Collection** — `/vd-plan` opens with 3 conversational questions instead of "list 10 testable features."
+
 ### 🛠️ How to Start
 
 1. Install the skills in your AI environment (see [INSTALL.md](./INSTALL.md)).
@@ -94,6 +104,16 @@ O ecossistema detecta automaticamente o perfil do usuário através do campo `mo
 - ✨ **`/vd-spark`** — discovery pré-Fase-1 pra leigos com ideia vaga. Conversa de 4 rodadas extrai ideia/persona/transformação/sinal-de-sucesso antes do `/vd-start` rodar (ver `vibedev/references/discovery-leigo.md`).
 - 🚀 **`/vd-launch`** — blocos de comunicação pós-Fase-7 (elevator pitch, 3 variantes de tweet, post LinkedIn, estrutura de landing, e-mail beta, post-mortem privado) + checklist 24h antes do lançamento em `vibedev/assets/launch/`.
 - 🇧🇷 **Modo Brasil** — auto-ativado quando detecta pt-BR / contexto BR. BRL, Pix-first, LGPD explícita, hospedagem BR. Ver `vibedev/references/brasil.md`.
+
+### 🆕 O que tem de novo no v3.4.0 (Leigo Total + Modo País)
+
+- 🌍 **Modo País genérico** — 12 países auto-detectados por sinais (TLD + moeda + gateway + fuso). Substitui `brasil.md`. Ver `vibedev/references/modo-pais.md`.
+- 👋 **Tour de Onboarding** — 3 mensagens na primeira sessão pro leigo (ver `vibedev/references/onboarding-leigo.md`).
+- 📊 **Painel Visual de Progresso** — `/vd-status` renderiza barra ASCII + checklist de fases pro leigo (ver `vibedev/references/painel-progresso.md`).
+- 🤝 **Decisão Confiante** — IA escolhe com justificativa de 1 linha quando leigo não consegue avaliar opções Tipo 1.
+- 🛡️ **Validação Anti-"tá"** — `/vd-check` recusa aprovação vaga.
+- 🔄 **Recap Automático** — 7+ dias fora = `/vd-status` expandido com opções.
+- 💬 **Coleta Assistida de Features** — `/vd-plan` abre com 3 perguntas conversacionais em vez de "liste 10 features testáveis".
 
 ### 🛠️ Como Começar
 

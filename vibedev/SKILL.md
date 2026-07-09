@@ -60,25 +60,42 @@ Quando `modo_usuario: leigo` estiver marcado:
 
 ---
 
-### Modo Brasil (auto-ativação por contexto)
+### Modo País (auto-ativação por contexto)
 
 Ativar automaticamente quando UM destes sinais estiver presente:
-- Sessão em pt-BR (default no Mavis)
-- Projeto cita BRL, Pix, Brasil, .com.br, fuso GMT-3
-- Usuário fala "Brasil", "BR", "aqui", "nosso público"
+- Sessão em idioma com peso geográfico (pt-BR, pt-PT, en-GB, es-MX, ru-RU, zh-CN...)
+- Projeto cita moeda local, gateway local, fuso, domínio TLD
+- Usuário fala nome de país explícito
 
-Carrega `references/brasil.md` e aplica:
+Carrega `references/modo-pais.md` (que cobre 12 países: 🇧🇷 BR, 🇵🇹 PT, 🇺🇸 US, 🇬🇧 GB, 🇲🇽 MX, 🇦🇷 AR, 🇨🇱 CL, 🇨🇳 CN, 🇷🇺 RU, 🇺🇦 UA, 🇪🇺 EU, 🇯🇵 JP).
 
-- Toda simulação de custo em **BRL** (R$ X.XXX,XX).
-- Sugestão de pagamento pergunta **Pix antes** de cartão.
-- LGPD explícita em checagem de segurança (via VibeShield).
-- Hosting pergunta se precisa **solo BR**.
-- UI strings em **pt-BR**.
-- Datas em **DD/MM/AAAA**.
-- Fuso **GMT-3** (Brasília, sem horário de verão desde 2019).
+**Sinais de detecção (combinação, não isolado):**
+- TLD do domínio (`.com.br`, `.pt`, `.ru`, `.ua`, `.cn`, `.jp`...)
+- Moeda (R$, €, $, £, ¥, ₽, ₴, MXN...)
+- Idioma com sotaque geográfico (pt-BR vs pt-PT, es-MX vs es-AR, en-US vs en-GB)
+- Referência cultural (Pix, MBWAY, Alipay, SPEI, Webpay, ЮKassa...)
+- Fuso (GMT-3, GMT+0, GMT+8...)
 
-**Opt-out:** usuário diz "modo Brasil off" ou projeto for explicitamente
-internacional. Respeitar.
+**Resolução:**
+1. **Sinais fortes + 1 país** → ativa direto
+2. **Sinais fortes + 2+ países próximos** → pergunta ao usuário
+3. **Score baixo / ambíguo** → modo genérico (en-US + USD como default conservador)
+
+**Aplicar quando ativo:**
+- Simulação de custo em **moeda local**
+- Pagamento: gateways locais primeiro
+- Lei de dados local explícita em checagem de segurança (via VibeShield handoff)
+- Hosting: provedores locais listados como opção
+- UI strings em **idioma local**
+- Datas e números em **formato local**
+- Fuso em exemplos
+
+**Disclaimer sempre visível:** `references/modo-pais.md` começa com
+advertência explícita de que é ponto de partida, não assessoria jurídica.
+Em modo País, sempre que tocar em compliance, lembrar o humano de
+consultar profissional local.
+
+**Opt-out:** usuário diz "modo [país] off" ou "modo país off" → desativa.
 
 ---
 
@@ -254,6 +271,11 @@ conforme a trilha diagnosticada. Para o template leigo, o conteúdo de
 `trilha-verde.md` precisa ser renderizado em linguagem simples — adapte, 
 não invente do zero.
 
+**Tour de onboarding (primeira sessão, só se `modo_usuario: leigo`):**
+3 mensagens curtas no primeiro encontro. Ver `references/onboarding-leigo.md`
+pra texto canônico. Tour não roda em sessões seguintes (campo
+`onboarding_completo` no estado marca "feito").
+
 ---
 
 ### `/vd-status`
@@ -265,6 +287,13 @@ Leia `PROJECT_STATE.md` e responda em exatamente 4 linhas:
 
 Nada além disso. Zero ruído.
 
+**Modo leigo:** renderizar painel visual completo (barra de progresso,
+trilha mapeada, conquistas, custo). Ver `references/painel-progresso.md`.
+
+**Recap automático:** se `data_atual - ultima_sessao_em ≥ 7 dias`, expandir
+painel em recap + 3 opções (continuar / revisar / replanejar). Ver
+`references/recap-automatico.md`.
+
 ---
 
 ### `/vd-plan [intenção em linguagem natural]`
@@ -274,6 +303,11 @@ Passos obrigatórios:
 1. Confirme que a intenção está dentro da fase atual. Se não estiver,
    sinalize e pergunte se o usuário quer registrar no backlog ou mudar de fase.
 2. Quebre a intenção em sub-tarefas concretas e ordenadas.
+
+**Modo leigo:** antes de pedir lista aberta de features, abrir coleta
+assistida (3 perguntas: fluxo / não-quero / anti-escopo). Ver
+`references/coleta-features-assistida.md`. Quando terminar coleta,
+alimentar `/vd-plan` formal.
 3. Para cada sub-tarefa, classifique:
    - **Tipo 1** (irreversível ou cara de reverter): escolha de banco, modelo
      de dados, stack, auth, estrutura de cobrança, exposição de dados.
@@ -316,14 +350,26 @@ Regras de execução:
 
 Protocolo:
 1. Relembre o critério de "pronto" definido no `/vd-plan`.
-2. Peça ao usuário que execute e descreva o resultado observado.
-3. Compare resultado com critério:
-   - ✅ Passou → marque sub-tarefa como concluída no estado. Verifique
-     gate de fase (leia `references/gates.md`) se for a última sub-tarefa
-     da fase.
-   - ❌ Falhou → entre em modo DEBUG na mesma sub-tarefa. Nunca avance.
-     Diagnóstico → hipótese → correção → novo `/vd-check`.
-4. Registre resultado no Decision Log.
+2. Peça ao usuário que execute e descreva o resultado observado,
+   com **pergunta explícita e verificável**:
+   "Você clicou em '[botão X]', preencheu os campos, e viu [resultado
+   visível específico] acontecer na tela? Sim ou não — sem achismo."
+3. Se usuário responder "tá", "deve tá", "acho que sim", "parece bom":
+   - **NÃO aceite como aprovação.**
+   - Reformule: "Isso aconteceu AGORA, na sua tela, há alguns minutos?
+   Se não, abre e tenta de novo."
+   - Se ainda assim resposta vaga → o framework entra em modo DEBUG
+   preventivo: pedir print, log, ou observação específica.
+4. Compare resultado com critério:
+   - ✅ Passou (com confirmação explícita) → marque sub-tarefa como
+     concluída no estado. Verifique gate de fase se for a última.
+   - ❌ Falhou → entre em modo DEBUG. Diagnóstico → hipótese → correção.
+5. Registre resultado no Decision Log.
+
+**Por que essa validação reforçada:**
+Leigos tendem a dizer "tá" pra encerrar logo. Aceitar "tá" como aprovação
+significa passar features não-testadas de fato. O framework protege contra
+isso pedindo confirmação do evento observável, não da sensação geral.
 
 ---
 
@@ -475,6 +521,25 @@ Quando o usuário pergunta "quanto tempo ainda falta pra ficar pronto?", a IA:
 - Dúvida sobre o tipo → trate como Tipo 1.
 - Proibido abrir leque de opções em Tipo 2 — gera fadiga e mata o ritmo.
 
+**Modo leigo (decisão confiante por padrão):**
+Quando leigo não consegue avaliar opções técnicas, o framework oferece
+**decisão com default confiante**:
+
+"Eu vou escolher X porque [1 linha de justificativa]. Você topa ou quer
+entender melhor antes?"
+
+Se leigo responder "você escolhe", "tanto faz", "tanto faz mesmo",
+"pode escolher", "te dou carta branca", "decide você":
+
+1. IA escolhe a opção padrão recomendada (Tipo 1 → a do Red Team).
+2. Justificativa em 1 linha.
+3. Registra no Decision Log: "decisão Tipo X tomada por IA em [data],
+   usuário delegou explicitamente".
+4. Segue.
+
+Se leigo responder "quero entender melhor": IA explica o trade-off em
+linguagem humana, sem jargão, com 1 analogia se útil.
+
 **Economia de fala (output):**
 Confirmações de rotina (`/vd-build` concluindo sub-tarefa, `/vd-check`
 aprovando, `/vd-status`) têm teto de 2 linhas por padrão. Parágrafo
@@ -508,14 +573,38 @@ Incremente honestamente. São o critério de validade do próprio framework.
 
 Leia conforme necessário — não carregue todos de uma vez:
 
+**Trilhas e estado:**
 - `references/trilha-verde.md` — 8 fases do Greenfield com descrição detalhada
 - `references/trilha-vermelha.md` — 5 fases do Rescue com protocolo de arqueologia
 - `references/gates.md` — critérios de transição entre fases (ambas as trilhas)
 - `references/stack-guide.md` — recomendações de ferramentas por caso de uso
 - `assets/PROJECT_STATE-green.md` — template de estado para Trilha Verde
 - `assets/PROJECT_STATE-red.md` — template de estado para Trilha Vermelha
+- `assets/PROJECT_STATE-green-leigo.md` — template leigo (5 fases)
 - `assets/PROJECT_STATE_ARCHIVE-template.md` — esqueleto usado pelo
   `/vd-compact` na primeira execução em cada projeto
+- `assets/IDEA_LOG-template.md` — arquivo de ideias encerradas via `/vd-kill`
+
+**Layman Mode (referências do modo leigo):**
+- `references/glossario-leigo.md` — mapa termo técnico → linguagem humana (auto-ativo)
+- `references/onboarding-leigo.md` — tour de primeira sessão (3 mensagens)
+- `references/discovery-leigo.md` — protocolo do `/vd-spark` (4 rodadas)
+- `references/coleta-features-assistida.md` — coleta assistida de features pro `/vd-plan`
+- `references/tempo-construcao.md` — estimativas realistas por categoria
+- `references/estimativa-custos.md` — custos mensais por porte de usuários
+- `references/anti-creep.md` — contenção de feature creep em 3 camadas
+- `references/painel-progresso.md` — render visual do `/vd-status` (modo leigo)
+- `references/recap-automatico.md` — recap quando volta depois de 7+ dias
+
+**Modo País:**
+- `references/modo-pais.md` — detecção automática + contexto de 12 países (BR, PT, US, GB, MX, AR, CL, CN, RU, UA, EU, JP)
+
+**Launch:**
+- `assets/launch/launch-brief-template.md` — blocos de comunicação pós-lançamento
+- `assets/launch/checklist-pre-launch.md` — checklist 24h antes do lançamento
+
+**Integrações:**
+- `references/handoffs.md` — dispatch bridge pra skills-satélite (VibeShield etc.)
 
 > **Escopo de economia de tokens:** este framework cobre a economia
 > *dentro do estado do projeto* (PROJECT_STATE.md, Decision Log, output
