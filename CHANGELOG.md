@@ -35,6 +35,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ---
 
+## [3.4.1] — 2026-07-11
+
+### Changed / Modificado
+
+- **`references/modo-pais.md` reorientado**: o framework é tecnologia cívica pra devs nativos de cada país construindo pro próprio país, com gateways/hosts/leis locais. Reclassificação de CN/RU/UA de "Experimental" pra **Estável (manutenção comunitária)**, com bloco "Lacunas conhecidas" em cada um. PRs de nativos especialmente bem-vindos.
+
+### Backward compatible / Sem quebra de compatibilidade
+
+- Mudança é de framing, não de comportamento técnico.
+
+[3.4.1]: https://github.com/4pixeltechBR/VibeDev/releases/tag/v3.4.1
+
+---
+
 ## [3.3.0] — 2026-07-10
 
 ### Added / Adicionado

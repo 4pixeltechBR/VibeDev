@@ -55,6 +55,11 @@ The ecosystem automatically detects user profile via the `modo_usuario` field in
 - 🔄 **Automatic Recap** — 7+ days gone = extended `/vd-status` with options.
 - 💬 **Assisted Feature Collection** — `/vd-plan` opens with 3 conversational questions instead of "list 10 testable features."
 
+### 🆕 What's new in v3.4.1 (Country Mode Reoriented)
+
+- 🛠️ **Country Mode reframed** — the framework is **civic technology for native developers** building tools for their own country, with local gateways / hosts / laws / language. Not a guide for foreign companies entering other markets.
+- 🇺🇦 🇷🇺 🇨🇳 **CN / RU / UA reclassified** from "Experimental" to "Stable (community-maintained)" with specific "known gaps — local contributor welcome" blocks per country.
+
 ### 🛠️ How to Start
 
 1. Install the skills in your AI environment (see [INSTALL.md](./INSTALL.md)).
@@ -114,6 +119,11 @@ O ecossistema detecta automaticamente o perfil do usuário através do campo `mo
 - 🛡️ **Validação Anti-"tá"** — `/vd-check` recusa aprovação vaga.
 - 🔄 **Recap Automático** — 7+ dias fora = `/vd-status` expandido com opções.
 - 💬 **Coleta Assistida de Features** — `/vd-plan` abre com 3 perguntas conversacionais em vez de "liste 10 features testáveis".
+
+### 🆕 O que tem de novo no v3.4.1 (Modo País Reorientado)
+
+- 🛠️ **Modo País reorientado** — o framework é **tecnologia cívica pra devs nativos** construindo ferramentas pro próprio país, com gateways / hosts / leis / idioma local. Não é guia pra empresas estrangeiras entrando em outros mercados.
+- 🇺🇦 🇷🇺 🇨🇳 **CN / RU / UA reclassificados** de "Experimental" pra "Estável (manutenção comunitária)" com blocos específicos de "lacunas conhecidas — contribuidor local bem-vindo" por país.
 
 ### 🛠️ Como Começar
 

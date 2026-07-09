@@ -1,21 +1,54 @@
 # Modo País — Contexto Local Automático por País
 
-> Detecção automática do país de operação baseado em sinais da sessão
-> (idioma, moeda, fuso, domínio TLD, referências culturais). Carrega
-> contexto local: idioma da UI, moeda, meios de pagamento, lei de
-> proteção de dados, hospedagem, formato de data, fuso horário.
+> Detecção automática do país do **desenvolvedor** baseado em sinais da
+> sessão (idioma, moeda, fuso, domínio TLD, referências culturais).
+> Carrega contexto local: idioma da UI, moeda, meios de pagamento,
+> lei de proteção de dados, hospedagem, formato de data, fuso horário.
 
 ---
 
-## ⚠️ IMPORTANTE — Disclaimer Obrigatório
+## Propósito
 
-**Este arquivo é ponto de partida pra conversas, não assessoria jurídica nem contábil.**
+**Este arquivo serve devs nativos de cada país** que querem construir
+ferramentas digitais pro próprio país — com gateways locais, servidores
+locais, leis locais, idioma local. Tecnologia cívica: ajudar quem mora
+lá a resolver problemas lá, com infra local.
 
-- Nada aqui substitui advogado, contador ou consultor de compliance local.
-- Leis de proteção de dados mudam; gateways de pagamento mudam provedores; sanções internacionais mudam.
-- **Antes de operar produto digital sério em qualquer país**, consulte profissional local.
-- Para países marcados como `experimental` (CN, RU, UA), situação legal é **especialmente volátil** — verifique antes de tomar decisão.
-- Este arquivo é mantido pela comunidade; última atualização: ver commit do git.
+Não é guia pra empresas estrangeiras operando em outros mercados. Quem
+lê um país que não é o seu geralmente tá só curioso — tá tudo bem,
+mas não use a seção alheia pra operar.
+
+## Modelo mental
+
+- Você tá em país X, fala idioma X, usa moeda X, quer construir app pro público X.
+- O `modo-pais.md` carrega o que é útil pra isso: gateways de pagamento
+  que funcionam em X, hospedagem que cumpre a lei de X, formato de UI
+  que faz sentido em X, links pras leis de proteção de dados de X.
+- Você não precisa aprender nada de Y, Z, W. Vai direto pro que serve.
+
+## Cobertura
+
+12 países: 🇧🇷 BR, 🇵🇹 PT, 🇺🇸 US, 🇬🇧 GB, 🇲🇽 MX, 🇦🇷 AR, 🇨🇱 CL, 🇨🇳 CN, 🇷🇺 RU, 🇺🇦 UA, 🇪🇺 EU, 🇯🇵 JP.
+
+Cada país tem contribuidor identificado ou **apelação aberta** (PRs
+bem-vindos — ver seção "Contribuindo").
+
+## Aviso jurídico (vale pra todos)
+
+- Este arquivo é ponto de partida, **não assessoria jurídica nem contábil**.
+- Antes de qualquer operação séria (pagamento recorrente, coleta de dados
+  pessoais de clientes, emissão de nota fiscal / invoice / fapiao), consulte
+  **profissional local** do país em questão.
+- Leis mudam. Gateways mudam termos. Status (estável / experimental) é
+  opinião da comunidade, não garantia legal.
+- Última atualização: ver commit do git.
+
+## Aviso específico pra empresas estrangeiras
+
+Se você é dev/empresa **fora** do país alvo e quer operar lá comercialmente,
+este arquivo **não é seu guia**. Você enfrentará sanções internacionais,
+compliance extra, e barreiras regulatorias fora do escopo. Contrate
+advogado local + consultor de expansão internacional.
 
 ---
 
@@ -158,42 +191,93 @@ Cobertura atual. Cada um é uma seção abaixo.
 
 ### 🇨🇳 China (CN)
 
-- **Idioma da UI:** zh-CN (chinês simplificado)
-- **Moeda:** CNY (¥)
-- **Fuso:** GMT+8
-- **Datas:** YYYY-MM-DD ou YYYY年MM月DD日
-- **Pagamentos:** WeChat Pay → Alipay → UnionPay
-- **Lei de dados:** PIPL (Personal Information Protection Law, 2021) + CSL (Cybersecurity Law, 2017) + DSL (Data Security Law, 2021)
-- **Hospedagem CN:** obrigatória em solo chinês pra dados pessoais de cidadãos CN (cross-border com CAC approval)
-- **Sinais de detecção:** `.cn`, `zh-CN`, CNY, "微信" (WeChat), "支付宝" (Alipay), "ICP备案" (ICP filing)
-- **Status:** ⚠️ **Experimental** — regulação severa, exige certificação CAC pra serviços de IA generativa + ICP备案 pra qualquer site público + dados em solo chinês com avaliação de segurança.
-- **Notas:** Para SaaS global com usuários chineses, complexidade regulatória é alta. Provedores estrangeiros (Stripe, Google) estão **bloqueados**. Sempre consultar advogado chinês e parceiro técnico local.
+Você tá construindo app pra público chinês, rodando em servidores chineses, com gateways chineses.
+
+- **Idioma da UI:** zh-CN (chinês simplificado; tradicional pra Taiwan/HK/Macau)
+- **Moeda:** CNY (¥) ou CNH (offshore)
+- **Fuso:** GMT+8 (Horário de Pequim, único fuso nacional)
+- **Datas:** YYYY-MM-DD (ISO) ou YYYY年MM月DD日 (texto); semana inicia na segunda
+- **Pagamentos (dev local):** WeChat Pay (微信支付) → Alipay (支付宝) → UnionPay (银联) → JD Pay
+  - **Integração:** WeChat Pay Open Platform + Alipay Open Platform — ambas têm SDK e docs em chinês, suporte a sandbox
+  - **Atenção:** Stripe, PayPal, Adyen **não estão disponíveis** dentro do ecossistema chinês
+- **Lei de dados:** PIPL (个人信息保护法, 2021) + CSL (网络安全法, 2017) + DSL (数据安全法, 2021)
+  - Pra processar dados pessoais de cidadãos chineses: precisa de consentimento granular
+  - Cross-border data transfer: exige CAC security assessment ou standard contract
+  - Serviços de IA generativa: precisa de algoritmo备案 (filing) com CAC
+- **Hospedagem (China-based, recomendado):**
+  - **Aliyun (阿里云)** — maior provedor, presença em todas as regiões
+  - **Tencent Cloud (腾讯云)** — forte em gaming e mensageria
+  - **Huawei Cloud (华为云)** — opção state-backed
+  - **Baidu Cloud** — bom em AI/ML
+- **ICP备案 (filing obrigatório):** qualquer site público em servidor chinês precisa de ICP备案 — registro único, leva 7-20 dias úteis. CN (company) ou IDC (individual) variant.
+- **Provedores internacionais:** geralmente acessíveis de dentro do país pra uso em desenvolvimento, mas **pagamento a clientes finais em CNY** exige integração com gateway local
+- **Sinais de detecção:** `.cn`, `zh-CN`, CNY, "微信" / "支付宝" / "备案" / "ICP"
+- **Status:** Estável (manutenção comunitária; lacunas marcadas abaixo)
+
+**Lacunas conhecidas — contribuidor local bem-vindo:**
+- Lista atualizada de gateways menores (Douyin Pay, Kuaishou Pay) — quem mora lá sabe quem domina em cada nicho
+- Procedimento detalhado de ICP备案 step-by-step em 2026 (regulamentação muda)
+- Procedimento CAC security assessment pra cross-border
+- SDKs Node/Python/Java com links e versões atuais
+- Sub-cenários: HK/Macau (idioma zh-HK/zh-MO, lei diferente), Taiwan (zh-TW)
 
 ### 🇷🇺 Rússia (RU)
 
-- **Idioma da UI:** ru-RU (russo + cirílico)
+Você tá construindo app pra público russo, rodando em servidores russos, com gateways russos.
+
+- **Idioma da UI:** ru-RU (russo, alfabeto cirílico)
 - **Moeda:** RUB (₽)
-- **Fuso:** GMT+3 a GMT+12 (multi-fuso)
+- **Fuso:** GMT+3 a GMT+12 (multi-fuso, 11 fusos; Kaliningrado GMT+2, Vladivostok GMT+10)
 - **Datas:** DD.MM.YYYY
-- **Pagamentos:** ЮKassa (YooKassa) → Тинькофф → Сбербанк Онлайн; **Visa/Mastercard suspenderam operações em 2022**
-- **Lei de dados:** 152-ФЗ (Federal Law on Personal Data, 2006, endurecido em 2023/2024) — **dados de cidadãos RU devem estar em servidores em solo russo**
-- **Hospedagem RU:** obrigatória solo RU; provedores: Yandex Cloud, VK Cloud, Selectel
-- **Sinais de detecção:** `.ru`, `.рф`, "RUB", "₽", "152-ФЗ", "ЮKassa", "Тинькофф"
-- **Status:** ⚠️ **Experimental** — sanções OFAC/EU afetam serviços internacionais (Stripe, AWS, Google Cloud com limitações); empresas ocidentais geralmente evitam exposição comercial ativa na Rússia.
-- **Notas:** **Antes de processar pagamentos ou hospedar dados de cidadãos russos, verifique counsel local e compliance com sanções em jurisdição da sua empresa.** Este arquivo não orienta prática comercial ativa na Federação Russa dado contexto atual.
+- **Pagamentos (dev local):** ЮKassa (YooKassa) → Тинькофф (Tinkoff) Касса → СберБизнес (SberBusiness) → Robokassa
+  - **Cartões internacionais:** Visa/Mastercard **suspenderam operações** em território russo desde 2022. Cartões russos (МИР - Mir) dominam.
+  - **Atenção pra dev:** ao testar com cartão de teste, busque cartões Mir de teste, não Visa/MC
+- **Lei de dados:** 152-ФЗ (Федеральный закон "О персональных данных", 2006 — endurecido em 2023/2024)
+  - **Solo russo obrigatório:** dados pessoais de cidadãos russos devem ser processados em servidores fisicamente em território russo
+  - Antes de lançar: registrar como operador de dados pessoais no РосКомСвобода (Roskomnadzor) — орган regulador
+  - **Cross-border transfer:** proibido pra maioria de dados pessoais sem consentimento específico ou cláusula contratual aprovada
+- **Hospedagem (Russia-based):**
+  - **Yandex Cloud** — maior, integra com resto do ecossistema Yandex
+  - **VK Cloud (Mail.ru Cloud Solutions)** — forte em serviços managed
+  - **Selectel** — bom em VPS dedicado e armazenamento
+  - **Timeweb Cloud** — opção acessível pra MVP / hobby
+- **Serviços estrangeiros (Stripe, AWS, Google Cloud):** acessíveis dentro do país pra desenvolvimento, mas pagamento a clientes finais em RUB exige integração local.
+- **Sinais de detecção:** `.ru`/`.рф`, "₽", "RUB", "ЮKassa" / "Тинькофф" / "Сбер" / "152-ФЗ"
+- **Status:** Estável (manutenção comunitária; lacunas abaixo)
+
+**Lacunas conhecidas — contribuidor local bem-vindo:**
+- Procedimento atual de registro no Roskomnadzor (órgão regulador) — muda com frequência
+- Lista de provedores menores / regionais (RUVDS, Aéza, FastVPS)
+- SDK Node/Python/Java pra YooKassa + Tinkoff — links e versões atuais
+- Sub-cenários: Bielo-Rússia (be-BY, BYN), Cazaquistão (kz-KK, KZT) com legislação correlata
 
 ### 🇺🇦 Ucrânia (UA)
 
-- **Idioma da UI:** uk-UA (ucraniano) + ru-UA (crescente mas politicamente sensível)
+- **Idioma da UI:** uk-UA (ucraniano). Algumas regiões usam russo mas contexto político torna uk-UA o default recomendado.
 - **Moeda:** UAH (₴)
-- **Fuso:** GMT+2 (+3 com DST em 2026?)
+- **Fuso:** GMT+2 (EET) / GMT+3 (EEST com DST)
 - **Datas:** DD.MM.YYYY
-- **Pagamentos:** LiqPay (PrivatBank) → Monobank → WayForPay → Cartão (limitado por guerra)
-- **Lei de dados:** Lei 2297-VI (Proteção de Dados Pessoais, 2010) — projeto de lei novo em discussão pra alinhar com GDPR
-- **Hospedagem UA:** rara opção local; maioria hospeda em EU; AWS eu-central-1 (Frankfurt) ou eu-east-1 (Irlanda)
-- **Sinais de detecção:** `.ua`, "UAH", "₴", "LiqPay", "Monobank", uk-UA
-- **Status:** ⚠️ **Experimental** — país em conflito armado; economia parcialmente convertida; lei de PI em transição. Cuidado com contexto político.
-- **Notas:** **Operar produto digital na Ucrânia em 2026 envolve contexto humanitário e regulatório volátil.** Empresas sérias contam com advisor local e decisões de principle.
+- **Pagamentos (dev local):** LiqPay (PrivatBank) → Monobank → WayForPay → Fondy → Portmone
+  - **Cartões:** Visa/MC funcionam em território ucraniano. Stripe/Adyen acessíveis.
+  - **Atenção:** contexto bélico significa algumas rotas internacionais podem oscilar
+- **Lei de dados:** Lei 2297-VI (Закон "Про захист персональних даних", 2010)
+  - projeto de lei novo em discussão pra alinhar com GDPR (status atual: consultar)
+  - Para coleta de dados pessoais: base legal (consentimento, contrato, obrigação legal) e notificação ao Уповноважений (Comissário de Direitos Humanos)
+  - **Cross-border transfer:** permitido com garantias adequadas
+- **Hospedagem (Ukraine-based, opção limitada):**
+  - **Data.center Ukraine (DCUA), GigaCenter, Colocall** — DCs locais; oferta limitada
+  - **Maioria hospeda em EU** — AWS eu-central-1 (Frankfurt), eu-east-1 (Ireland), GCP europe-west, Azure West Europe
+  - Justificativa comum: lei local permite hosting fora com garantias contratuais
+- **Serviços estrangeiros:** plenamente acessíveis. Stripe, AWS, Google Cloud funcionam normalmente.
+- **Sinais de detecção:** `.ua`, "UAH", "₴", "LiqPay" / "Monobank" / "WayForPay" / "ПриватБанк"
+- **Status:** Estável (manutenção comunitária; lacunas abaixo)
+
+**Lacunas conhecidas — contribuidor local bem-vindo:**
+- Status atual do projeto de lei novo (alinhamento GDPR) — quem mora lá acompanha
+- Procedimento de notificação ao Уповноважений (Comissário)
+- Lista de DCs ucrânianos menores e seus SLAs
+- SDKs de gateways — versões e links atualizados
+- Operação sob conflito: backup geo-redundante, plano de continuidade, escolha de DC resistente
 
 ### 🇪🇺 União Europeia (EU)
 
@@ -225,15 +309,25 @@ Cobertura atual. Cada um é uma seção abaixo.
 
 ## Matriz de decisão rápida
 
-| Necessidade | Sugestão |
-|---|---|
-| SaaS BR pequeno | 🇧🇷 BR + pt-BR + BRL + Pix + LGPD |
-| SaaS EUA pequeno | 🇺🇸 US + en-US + USD + Stripe + CCPA check |
-| SaaS EU pequeno | 🇪🇺 EU + idioma-alvo + EUR + Stripe/Adyen + GDPR |
-| App BR + internacionalização futura | 🇧🇷 BR primário, i18n desde o design |
-| Chatbot/IA com público global | 🇪🇺 EU como base regulatória + i18n multi-idioma |
-| App com público BR + vizinhança | 🇧🇷 BR + opcional 🇦🇷 AR/🇨🇱 CL/🇺🇾 (se expandir) |
-| MVP experimental em país complexo | 🇪🇺 EU como "padrão GDPR" mesmo sediado em outro lugar |
+| Você é dev em... | Construindo pra... | Sugestão |
+|---|---|---|
+| 🇧🇷 BR | público brasileiro | 🇧🇷 BR + pt-BR + BRL + Pix + LGPD |
+| 🇵🇹 PT | público português | 🇵🇹 PT + pt-PT + EUR + MBWAY + RGPD |
+| 🇺🇸 US | público americano | 🇺🇸 US + en-US + USD + Stripe + CCPA |
+| 🇬🇧 GB | público britânico | 🇬🇧 GB + en-GB + GBP + Stripe + UK GDPR |
+| 🇲🇽 MX | público mexicano | 🇲🇽 MX + es-MX + MXN + SPEI/OXXO + LFPDPPP |
+| 🇦🇷 AR | público argentino | 🇦🇷 AR + es-AR + ARS + Mercado Pago + Ley 25.326 |
+| 🇨🇱 CL | público chileno | 🇨🇱 CL + es-CL + CLP + Webpay + Ley 19.628 |
+| 🇨🇳 CN | público chinês | 🇨🇳 CN + zh-CN + CNY + WeChat/Alipay + PIPL |
+| 🇷🇺 RU | público russo | 🇷🇺 RU + ru-RU + RUB + ЮKassa + 152-ФЗ |
+| 🇺🇦 UA | público ucraniano | 🇺🇦 UA + uk-UA + UAH + LiqPay + Lei 2297-VI |
+| 🇪🇺 EU | público europeu (genérico) | 🇪🇺 EU + idioma-alvo + EUR + Stripe/Adyen + GDPR |
+| 🇯🇵 JP | público japonês | 🇯🇵 JP + ja-JP + JPY + PayPay + APPI |
+
+**Cenários especiais:**
+- App expandindo de 1 país pra outro: comece pelo país de origem, i18n desde o design (use chaves de tradução, armazene moeda como ISO 4217, datas ISO 8601)
+- Chatbot/IA multi-país: identifique mercado-alvo primário (origem do time) e adicione suporte gradual
+- Operação comercial de empresa estrangeira num país não sede: **fora do escopo deste arquivo**, procure consultor de expansão internacional
 
 ---
 
@@ -252,16 +346,64 @@ Algoritmo simplificado que o framework segue:
 
 ---
 
-## Disclaimer jurídico expandido
+## Contribuindo — chamado a maintainers nativos
 
-**O AVISO ABAIXO APLICA-SE A TODOS OS PAÍSES, ESPECIALMENTE AOS MARCADOS COMO EXPERIMENTAL:**
+Todos os 12 países deste arquivo podem ser melhorados por quem **mora lá**.
 
-1. Este arquivo é mantido pela comunidade VibeDev sob licença MIT. Não constitui aconselhamento jurídico, contábil ou regulatório.
-2. Leis de proteção de dados mudam; gateways de pagamento mudam termos; sanções internacionais mudam regimes.
-3. Para qualquer produto que processa dados pessoais de cidadãos de país listado, **consulte advogado local** que atue com startups/produto digital.
-4. Para gateways de pagamento, sempre verifique termos de uso atualizados do provedor.
-5. Para países em conflito armado ou sob sanções (UA, RU), decisões legais exigem counsel especializado em comércio internacional.
-6. Este arquivo é **compilado de fontes públicas** (políticas oficiais, Wikipedia, sites de provedores). Erros podem existir. Verifique antes de implementar.
-7. Última atualização: ver git log do arquivo.
+### Como ajudar (passo a passo)
 
-**Manter este arquivo atualizado é responsabilidade da comunidade.** PRs bem-vindos pra corrigir dados obsoletos ou adicionar países.
+1. **Fork** o repo `4pixeltechBR/VibeDev`
+2. Edite `vibedev/references/modo-pais.md`:
+   - Corrija links quebrados, status de provedores, datas de leis
+   - Adicione gateways / hosts menores que conhece do seu mercado
+   - Atualize regulação se mudou
+   - Se errou algo, conserte — melhor pedir perdão que pedir permissão
+3. PR com descrição curta do que mudou e por quê
+4. Tag gente nativa do país se puder revisar
+
+### Países que mais precisam de contribuidor local
+
+**🇨🇳 China:** leis mudam rápido (PIPL gerou várias regulamentações
+secundárias desde 2021); SDKs de WeChat Pay e Alipay ficam desatualizados
+em meses. Se você é dev chinês, cada PR ajuda dezenas de devs.
+
+**🇷🇺 Rússia:** cenário regulatório pós-2022 é volátil. Roskomnadzor
+publica novas diretrizes. Se você trabalha com dev russo, conhece
+YooKassa na prática, sabe quem tá usando VK Cloud vs Yandex Cloud,
+sua contribuição é de alto valor.
+
+**🇺🇦 Ucrânia:** projeto de lei novo de PI em discussão. Status atual
+de DCs sob conflito. SDKs de gateways funcionando sob condições de
+guerra são coisas que só quem tá lá sabe.
+
+**Outros países também:**
+- **🇲🇽 MX:** OXXO ainda é subdocumentado fora.
+- **🇦🇷 AR:** câmbio volátil — quem usa Mercado Pago lá sabe nuances que documentação oficial não conta.
+- **🇨🇱 CL:** Webpay tem nuances técnicas que só integrador local pega.
+- **🇯🇵 JP:** Konbini + PayPay têm fluxos específicos; APPI 2022 endureceu consentimento.
+
+### Como detectar contribuição prioritária
+
+Cada país já marca no fim do seu bloco a seção:
+
+```
+**Lacunas conhecidas — contribuidor local bem-vindo:**
+- [lista de pontos a endurecer]
+```
+
+PR que ataque qualquer item da lista é especialmente bem-vindo.
+
+## Disclaimer jurídico final
+
+**Vale pra todos os 12 países:**
+
+1. Este arquivo é mantido pela comunidade VibeDev sob licença MIT. **Não** constitui aconselhamento jurídico, contábil ou regulatório.
+2. Leis de proteção de dados mudam; gateways mudam termos; regulação evolui.
+3. Para qualquer produto que processe dados pessoais de cidadãos do país, **consulte advogado local** que atue com startups/produto digital.
+4. Para gateways de pagamento, sempre verifique termos de uso atualizados direto na documentação do provedor.
+5. Este arquivo é **compilado de fontes públicas** (políticas oficiais, Wikipedia, sites de provedores). Erros podem existir. Verifique antes de implementar.
+6. Última atualização: ver git log do arquivo.
+
+**Última frase, importante:** se você tá num país listado e o framework tá
+te ajudando a construir uma ferramenta pro seu próprio povo, ótimo.
+Continue. Contribua quando puder. É assim que a coisa cresce.

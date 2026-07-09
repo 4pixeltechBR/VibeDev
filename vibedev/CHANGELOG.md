@@ -41,6 +41,24 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ---
 
+## [1.5.1] — 2026-07-11
+
+### Changed / Modificado
+
+- **Reorientação do `references/modo-pais.md`** — o framework **não** é pra empresas estrangeiras "operando" em outros mercados. É tecnologia cívica pra **devs nativos** de cada país construindo ferramentas pro próprio país com infra local.
+- CN, RU e UA reclassificados de "Experimental" pra **Estável (manutenção comunitária)**. Mantida seção "Lacunas conhecidas — contribuidor local bem-vindo" em cada um desses 3 países, listando pontos que só nativos podem endurecer.
+- Disclaimer reescrito: agora deixa claro que é ponto de partida pra devs nativos, não guia pra estrangeiros operando em outros países.
+- Matriz de decisão rápida ampliada: cada país agora tem sugestão específica em vez de casos hipotéticos.
+
+### Backward compatible / Sem quebra de compatibilidade
+
+- Mudança é de framing + reclassificação, não de comportamento técnico. `modo-pais.md` carrega igual.
+- Projetos BR / US / EU não notam diferença.
+
+[1.5.1]: https://github.com/4pixeltechBR/VibeDev/releases/tag/v3.4.1
+
+---
+
 ## [1.4.0] — 2026-07-10
 
 ### Added / Adicionado
