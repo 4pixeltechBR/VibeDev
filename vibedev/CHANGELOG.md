@@ -8,6 +8,30 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ---
 
+## [1.4.0] — 2026-07-10
+
+### Added / Adicionado
+
+- **`/vd-spark` command** + `references/discovery-leigo.md`. Four-round conversation that extracts (idea / persona / transformation / success signal) from a layman who arrives with a vague Instagram-reel idea. Auto-activates when project is new and intent is ambiguous. Output: `discovery_brief` block that feeds the formal `/vd-start`. Doesn't replace `/vd-start` — precedes it.
+- **`/vd-launch` command** + `assets/launch/launch-brief-template.md` + `assets/launch/checklist-pre-launch.md`. Generates the communication blocks after gate Phase 7 → 8: elevator pitch, 3 tweet variants, LinkedIn post, landing page structure, personal email to first 10 beta users, private post-mortem. IA does NOT build the landing page itself — delivers blocks the human edits.
+- **Modo Brasil** (auto-activation by context) + `references/brasil.md`. Loaded when session is pt-BR or project has BR context. Activates: BRL as primary currency, Pix-first payment suggestion, explicit LGPD in security checks, BR hosting option prompt, pt-BR UI strings, DD/MM/AAAA dates, GMT-3 timezone.
+
+### Changed / Modificado
+
+- `SKILL.md` boot protocol: now recognizes pt-BR session / BR context signals and auto-loads `references/brasil.md` next to the Layman Glossary.
+- `SKILL.md` glossary section now includes **Modo Brasil** as a passive auto-activation rule.
+
+### Backward compatible / Sem quebra de compatibilidade
+
+- `/vd-spark` is purely additive — skip if user arrives with clear scope.
+- `/vd-launch` only triggers after Phase 7→8 gate (does nothing during construction).
+- Modo Brasil auto-activates but can be opted out. Projects in English / for international market are unaffected.
+- New templates live under `assets/launch/` and `assets/` — don't conflict with existing state templates.
+
+[1.4.0]: https://github.com/4pixeltechBR/VibeDev/releases/tag/v3.3.0
+
+---
+
 ## [1.3.0] — 2026-07-09
 
 ### Added / Adicionado

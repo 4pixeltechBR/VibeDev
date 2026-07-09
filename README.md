@@ -39,6 +39,12 @@ The ecosystem automatically detects user profile via the `modo_usuario` field in
 - 🛡️ **Anti-Feature-Creep** — 3-layer scope containment during `/vd-build`. Ideas land in backlog, not in code (see `vibedev/references/anti-creep.md`).
 - 🎯 **Reconhecimento & Pausa** — embedded rituals for sober progress acknowledgment + pause prompts at phase gates. Anti-burnout, anti-guilt.
 
+### 🆕 What's new in v3.3.0 (Layman Lifecycle Complete)
+
+- ✨ **`/vd-spark`** — pre-Phase-1 discovery for laymen with vague ideas. 4-round conversation extracts idea/persona/transformation/success-signal before `/vd-start` runs. See `vibedev/references/discovery-leigo.md`.
+- 🚀 **`/vd-launch`** — post-Phase-7 communication blocks (elevator pitch, 3 tweet variants, LinkedIn post, landing page structure, beta email, private post-mortem) + 24h pre-launch checklist in `vibedev/assets/launch/`.
+- 🇧🇷 **Modo Brasil** — auto-activated when pt-BR / BR context detected. BRL, Pix-first, LGPD explicit, BR hosting options. See `vibedev/references/brasil.md`.
+
 ### 🛠️ How to Start
 
 1. Install the skills in your AI environment (see [INSTALL.md](./INSTALL.md)).
@@ -82,6 +88,12 @@ O ecossistema detecta automaticamente o perfil do usuário através do campo `mo
 - ⏱️ **Estimativas de Tempo Calibradas** — tempo realista de construção por categoria de projeto, apresentado antes do `/vd-start` (ver `vibedev/references/tempo-construcao.md`).
 - 🛡️ **Anti-Feature-Creep** — contenção de escopo em 3 camadas durante `/vd-build`. Ideias vão pro backlog, não pro código (ver `vibedev/references/anti-creep.md`).
 - 🎯 **Reconhecimento & Pausa** — rituais embutidos de reconhecimento sóbrio de progresso + prompts de pausa em gates de fase. Anti-burnout, anti-culpa.
+
+### 🆕 O que tem de novo no v3.3.0 (Ciclo Leigo Completo)
+
+- ✨ **`/vd-spark`** — discovery pré-Fase-1 pra leigos com ideia vaga. Conversa de 4 rodadas extrai ideia/persona/transformação/sinal-de-sucesso antes do `/vd-start` rodar (ver `vibedev/references/discovery-leigo.md`).
+- 🚀 **`/vd-launch`** — blocos de comunicação pós-Fase-7 (elevator pitch, 3 variantes de tweet, post LinkedIn, estrutura de landing, e-mail beta, post-mortem privado) + checklist 24h antes do lançamento em `vibedev/assets/launch/`.
+- 🇧🇷 **Modo Brasil** — auto-ativado quando detecta pt-BR / contexto BR. BRL, Pix-first, LGPD explícita, hospedagem BR. Ver `vibedev/references/brasil.md`.
 
 ### 🛠️ Como Começar
 

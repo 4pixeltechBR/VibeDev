@@ -8,6 +8,26 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ---
 
+## [3.3.0] — 2026-07-10
+
+### Added / Adicionado
+
+- **VibeDev v1.4.0**: Closes the layman lifecycle — from vague idea to launched product.
+  - ✨ **`/vd-spark`** — pre-Phase-1 discovery for laymen with vague ideas. See [release notes](./docs/releases/v3.3.0.md).
+  - 🚀 **`/vd-launch`** — post-Phase-7 communication blocks (elevator pitch, tweet, LinkedIn, landing structure, beta email, private post-mortem) + 24h pre-launch checklist.
+  - 🇧🇷 **Modo Brasil** — auto-activated when pt-BR / BR context detected. BRL, Pix-first, LGPD explicit, BR hosting options, pt-BR UI strings.
+
+### Backward compatible / Sem quebra de compatibilidade
+
+- `/vd-spark` purely additive — skips when intent is already clear.
+- `/vd-launch` only triggers after Phase 7 → 8 gate (does nothing during construction).
+- Modo Brasil opt-out by user request. International projects unaffected.
+- All 9 originally identified layman gaps are now addressed across 3 minor releases.
+
+[3.3.0]: https://github.com/4pixeltechBR/VibeDev/releases/tag/v3.3.0
+
+---
+
 ## [3.2.0] — 2026-07-09
 
 ### Added / Adicionado

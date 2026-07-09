@@ -60,6 +60,28 @@ Quando `modo_usuario: leigo` estiver marcado:
 
 ---
 
+### Modo Brasil (auto-ativação por contexto)
+
+Ativar automaticamente quando UM destes sinais estiver presente:
+- Sessão em pt-BR (default no Mavis)
+- Projeto cita BRL, Pix, Brasil, .com.br, fuso GMT-3
+- Usuário fala "Brasil", "BR", "aqui", "nosso público"
+
+Carrega `references/brasil.md` e aplica:
+
+- Toda simulação de custo em **BRL** (R$ X.XXX,XX).
+- Sugestão de pagamento pergunta **Pix antes** de cartão.
+- LGPD explícita em checagem de segurança (via VibeShield).
+- Hosting pergunta se precisa **solo BR**.
+- UI strings em **pt-BR**.
+- Datas em **DD/MM/AAAA**.
+- Fuso **GMT-3** (Brasília, sem horário de verão desde 2019).
+
+**Opt-out:** usuário diz "modo Brasil off" ou projeto for explicitamente
+internacional. Respeitar.
+
+---
+
 ## Comandos VibeDev
 
 ### `/vd-start`
@@ -106,6 +128,37 @@ começando" → leigo. Resposta "sou dev / já programei" → técnico.
 controla se VibeShield e futuras skills-satélite operam em Modo Técnico 
 (`tecnico`) ou Modo Leigo (`leigo`). Esse campo é o gatilho de detecção 
 em todas as skills-satélite.
+
+---
+
+### `/vd-spark`
+**Conversa de discovery pra leigo com ideia vaga.**
+
+Quando o usuário chega com 1 frase solta (típico: "vi no Instagram e quero
+fazer um app de X"), o `/vd-start` formal trava nas 3 perguntas densas.
+
+`/vd-spark` conduz 4 rodadas curtas de conversa pra extrair:
+1. **A ideia** — o que quer construir (1 frase)
+2. **Pra quem** — 1 perfil de pessoa que vai usar
+3. **O que muda** — 1 ação observável que essa pessoa passa a poder fazer
+4. **Como saber que deu certo** — 1 métrica concreta
+
+Caminho completo em `references/discovery-leigo.md`. Não menciona framework,
+não fala de MVP, escopo ou stack. Apenas conversa.
+
+**Quando usar:**
+- Comando explícito: `/vd-spark`
+- Detecção automática: projeto novo + intenção ambígua (1ª msg do usuário
+  tem menos de 3 frases OU falta "pra quem" / "resolve" / "como medir")
+
+**Quando NÃO usar:**
+- Usuário chega com escopo claro (lista features + persona + métrica)
+- Dev experiente descrevendo projeto técnico
+- Retomada de projeto existente (vai direto pro `/vd-status`)
+
+**Saída:** bloco `discovery_brief` no `PROJECT_STATE.md` com as 4 respostas.
+Esse bloco **alimenta** o `/vd-start` formal — as 3 perguntas de
+diagnóstico ficam mastigadas.
 
 ---
 
@@ -335,6 +388,41 @@ Protocolo:
 Nunca arquive a fase atual, decisões Tipo 1, métricas, backlog ou
 post-mortems de fase — esses ficam sempre visíveis por serem baratos
 e/ou de alto valor de referência.
+
+---
+
+### `/vd-launch`
+**Material de apresentação do projeto.**
+
+Executado **após o gate Fase 7 → 8** (testes passaram, produção estável).
+Não constrói landing page sozinho — entrega os blocos prontos que o
+humano usa pra apresentar o projeto pro mundo.
+
+**O que entrega (em `assets/launch/launch-brief-template.md`):**
+- 1 elevator pitch (30 segundos em voz alta)
+- 3 tweets curtos (variação de abordagem)
+- 1 post LinkedIn completo (~1500 caracteres)
+- Estrutura completa de landing page (não cópia pronta, mas blocos)
+- 1 e-mail pessoal pra primeiros 10 beta users
+- Post-mortem privado (3 reflexões honestas)
+
+Templates auxiliares incluídos:
+- `assets/launch/checklist-pre-launch.md` — checklist 24h antes
+
+**Comportamento:**
+1. Lê o `discovery_brief` + `PROJECT_STATE.md` pra entender o projeto.
+2. Executa o glossário ativo (modo leigo).
+3. Pergunta 1 coisa: "Qual canal você quer atacar primeiro? (Twitter, LinkedIn, pessoal, todos)"
+4. Gera os blocos adaptados ao projeto real.
+5. Aguarda feedback antes de tentar otimizar.
+
+**Quando NÃO usar:**
+- Projeto ainda em Fase 6 (Construção). Lançamento durante construção
+  vira desculpa pra fazer mais código ("espera terminar mais isso").
+- Usuário não tem o fluxo principal testado (Fase 7).
+
+**Output:** arquivo `LAUNCH.md` na raiz do projeto, editável manualmente
+pelo humano. IA não itera automaticamente — espera feedback explícito.
 
 ---
 
