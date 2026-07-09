@@ -49,6 +49,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ---
 
+## [3.4.2] — 2026-07-11
+
+### Added / Adicionado
+
+- **`CREDITS.md`** at repository root: formal, dated, traceable record of people, papers, projects, and communities that materially influenced VibeDev design. Includes section "How to add an entry" for community contributions. Refers cross-link from `CONTRIBUTING.md`.
+- Hyperlinks to Sandeco Macedo's GitHub profile ([`@sandeco`](https://github.com/sandeco)) and the arXiv paper ([arXiv:2607.00038](https://arxiv.org/abs/2607.00038)) added across `docs/releases/v3.1.0.md`, `docs/releases/v3.2.0.md`, and `vibedev/CHANGELOG.md`.
+
+[3.4.2]: https://github.com/4pixeltechBR/VibeDev/releases/tag/v3.4.2
+
+---
+
 ## [3.3.0] — 2026-07-10
 
 ### Added / Adicionado

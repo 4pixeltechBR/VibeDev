@@ -1,6 +1,9 @@
 # Contributing / Contribuindo
 
 > 🇺🇸 English follows; 🇧🇷 Português abaixo.
+>
+> See also [`CREDITS.md`](./CREDITS.md) for the formal record of people, papers,
+> and projects that materially influenced VibeDev design.
 
 ---
 

@@ -59,6 +59,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ---
 
+## [1.5.2] — 2026-07-11
+
+### Added / Adicionado
+
+- Hyperlinks to [Sandeco Macedo's GitHub profile](https://github.com/sandeco) and [arXiv:2607.00038](https://arxiv.org/abs/2607.00038) added throughout credit sections.
+
+[1.5.2]: https://github.com/4pixeltechBR/VibeDev/releases/tag/v3.4.2
+
+---
+
 ## [1.4.0] — 2026-07-10
 
 ### Added / Adicionado
@@ -88,7 +98,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 ### Added / Adicionado
 
 - **Calibrated construction-time estimates** (`references/tempo-construcao.md`). Realistic time ranges by project category (landing, site, internal app, public SaaS, bot, mobile app) and user profile (dev vs leigo, dedicated vs spare-time). Loaded automatically during `/vd-start` in layman mode **before** formal diagnosis. Goal: align expectations with reality, not promise Instagram-reel timelines.
-- **Anti-feature-creep guard** (`references/anti-creep.md`). 3-layer containment for scope creep: pre-build scope check vs anti-scope + done criterion; real-time backlog registration during `/vd-build`; mandatory pause for high-impact additions. Inspired by Macedo's "specification gaming" anti-pattern (arXiv:2607.00038).
+- **Anti-feature-creep guard** (`references/anti-creep.md`). 3-layer containment for scope creep: pre-build scope check vs anti-scope + done criterion; real-time backlog registration during `/vd-build`; mandatory pause for high-impact additions. Inspired by Macedo's "specification gaming" anti-pattern ([arXiv:2607.00038](https://arxiv.org/abs/2607.00038)).
 - **Recognition & Pause** rule (in `SKILL.md`). Three small embedded rituals: factual micro-progress every 3 sub-tasks, sober celebration + mandatory pause prompt at phase gates, anti-guilt language for "how much longer?" questions. Acknowledges that building alone is exhausting work; the framework should not pretend otherwise.
 
 ### Backward compatible / Sem quebra de compatibilidade
