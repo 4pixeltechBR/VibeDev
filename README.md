@@ -8,7 +8,7 @@
 
 [![VibeDev License](https://img.shields.io/github/license/4pixeltechBR/VibeDev?style=flat-square&color=blue)](LICENSE)
 [![GitHub stars](https://img.shields.io/github/stars/4pixeltechBR/VibeDev?style=flat-square)](https://github.com/4pixeltechBR/VibeDev/stargazers)
-[![Framework Version](https://img.shields.io/badge/version-3.0.0-emerald?style=flat-square)](vibedev/SKILL.md)
+[![Framework Version](https://img.shields.io/badge/version-3.5.0-emerald?style=flat-square)](vibedev/SKILL.md)
 
 **VibeDev** is a lightweight, rigorous governance framework specifically designed for AI-driven software development (Vibe Coding). Coupled with **VibeShield**, it provides automated security audits and native **Layman Mode** support.
 
@@ -60,6 +60,18 @@ The ecosystem automatically detects user profile via the `modo_usuario` field in
 - 🛠️ **Country Mode reframed** — the framework is **civic technology for native developers** building tools for their own country, with local gateways / hosts / laws / language. Not a guide for foreign companies entering other markets.
 - 🇺🇦 🇷🇺 🇨🇳 **CN / RU / UA reclassified** from "Experimental" to "Stable (community-maintained)" with specific "known gaps — local contributor welcome" blocks per country.
 
+### 🆕 What's new in v3.4.2 (Formal Credits)
+
+- 🛠️ **CREDITS.md** at repository root with formal, dated, traceable record of people and papers that influenced VibeDev.
+- 🔗 **Hyperlinks** to [@sandeco](https://github.com/sandeco) and [arXiv:2607.00038](https://arxiv.org/abs/2607.00038) added across release notes.
+
+### 🆕 What's new in v3.5.0 (Router + Discipline)
+
+- 🧭 **`/vd-help` command** — router that maps the 11 VibeDev commands + emotional situations + main flow one-liner. Inspired by `ask-matt` from mattpocock/skills (cited as **competitive reference**, not academic). See `vibedev/commands/vd-help.md`.
+- 🏛️ **`.agents/adr/`** — 6 Architecture Decision Records documenting past and current design decisions (monolithic skill, country mode, 2 modes, anti-"tá", Sandeco credit, model-invoked-anunciado).
+- 🚫 **`.out-of-scope/`** — 7 documents explaining what VibeDev does NOT do (CI/CD, monorepo, issue tracker, low-code, replacement for VibeShield, stack recommendations, pretending to be VibeShield).
+- 🗣️ **Invocation model in SKILL.md** — explicit classification of all 11 commands + 7 silent rules as either `user-invoked` or `model-invoked-anunciado`. The adaptation twist from Pocock: we **announce** model-triggered actions instead of running them silently, because laymen need to see what the framework is doing.
+
 ### 🛠️ How to Start
 
 1. Install the skills in your AI environment (see [INSTALL.md](./INSTALL.md)).
@@ -73,7 +85,7 @@ The ecosystem automatically detects user profile via the `modo_usuario` field in
 
 [![VibeDev License](https://img.shields.io/github/license/4pixeltechBR/VibeDev?style=flat-square&color=blue)](LICENSE)
 [![GitHub stars](https://img.shields.io/github/stars/4pixeltechBR/VibeDev?style=flat-square)](https://github.com/4pixeltechBR/VibeDev/stargazers)
-[![Versão do Framework](https://img.shields.io/badge/vers%C3%A3o-3.0.0-emerald?style=flat-square)](vibedev/SKILL.md)
+[![Versão do Framework](https://img.shields.io/badge/vers%C3%A3o-3.5.0-emerald?style=flat-square)](vibedev/SKILL.md)
 
 O **VibeDev** é um framework leve e rigoroso de governança para desenvolvimento assistido por IA (Vibe Coding). Integrado ao **VibeShield**, oferece auditorias automáticas de segurança e suporte nativo a **Modo Leigo**.
 
@@ -124,6 +136,18 @@ O ecossistema detecta automaticamente o perfil do usuário através do campo `mo
 
 - 🛠️ **Modo País reorientado** — o framework é **tecnologia cívica pra devs nativos** construindo ferramentas pro próprio país, com gateways / hosts / leis / idioma local. Não é guia pra empresas estrangeiras entrando em outros mercados.
 - 🇺🇦 🇷🇺 🇨🇳 **CN / RU / UA reclassificados** de "Experimental" pra "Estável (manutenção comunitária)" com blocos específicos de "lacunas conhecidas — contribuidor local bem-vindo" por país.
+
+### 🆕 O que tem de novo no v3.4.2 (Créditos Formais)
+
+- 🛠️ **CREDITS.md** na raiz do repo com registro formal, datado e rastreável de pessoas e papers que influenciaram o VibeDev.
+- 🔗 **Hyperlinks** pro [@sandeco](https://github.com/sandeco) e pro [arXiv:2607.00038](https://arxiv.org/abs/2607.00038) adicionados nos release notes.
+
+### 🆕 O que tem de novo no v3.5.0 (Router + Disciplina)
+
+- 🧭 **Comando `/vd-help`** — router que mapeia os 11 comandos do VibeDev + situações emocionais + resumo do fluxo principal. Inspirado no `ask-matt` do mattpocock/skills (citado como **referência competitiva**, não acadêmica). Ver `vibedev/commands/vd-help.md`.
+- 🏛️ **`.agents/adr/`** — 6 Architecture Decision Records documentando decisões passadas e atuais (skill monolítica, modo país, 2 modos, anti-"tá", crédito Sandeco, model-invoked-anunciado).
+- 🚫 **`.out-of-scope/`** — 7 documentos explicando o que VibeDev NÃO faz (CI/CD, monorepo, issue tracker, low-code, substituir VibeShield, recomendações de stack, fingir ser VibeShield).
+- 🗣️ **Modelo de invocação no SKILL.md** — classificação explícita dos 11 comandos + 7 regras silenciosas como `user-invoked` ou `model-invoked-anunciado`. A adaptação do Pocock: a gente **anuncia** ações disparadas pelo modelo em vez de rodar silencioso, porque leigos precisam ver o que o framework tá fazendo.
 
 ### 🛠️ Como Começar
 
