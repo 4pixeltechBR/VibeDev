@@ -82,6 +82,26 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ---
 
+## [3.6.0] — 2026-07-24
+
+### Added / Adicionado
+
+- **VibeDev v1.7.0**: Changesets workflow at repo root. Inspired by mattpocock/skills using same tool.
+- **VibeShield v2.0.0**: Major version bump.
+  - 🛡️ **`vibeshield-code-review` skill** — review de diff/PR contra 2 eixos (Standards + Spec). See [release notes](./docs/releases/v3.6.0.md).
+  - 🚫 **`.out-of-scope/`** — 6 documents explaining what VibeShield does NOT do (pentest, replace DPO, SAST replacement, runtime race, transitive deps, replace VibeDev).
+
+### Backward compatible / Sem quebra de compatibilidade
+
+- VibeShield audit gatilho (G1-G7) preservada integralmente.
+- C1-C8, envelope, handoff-vibedev: tudo inalterado.
+- VibeShield code-review é aditiva (não-invasiva).
+- Changesets workflow é passivo até bot ser ativado.
+
+[3.6.0]: https://github.com/4pixeltechBR/VibeDev/releases/tag/v3.6.0
+
+---
+
 ## [3.3.0] — 2026-07-10
 
 ### Added / Adicionado

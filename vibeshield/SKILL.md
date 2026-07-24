@@ -36,6 +36,20 @@ Você é chamada pela VibeDev quando um dos 7 gatilhos (G1-G7) bate. Não invent
 
 Lista completa de palavras-gatilho e o protocolo de disparo estão em `references/handoff-vibedev.md` (seção 3 e 4).
 
+## Skill dedicada: `/vibeshield-code-review` (v2.0.0+)
+
+A partir do v2.0.0, VibeShield tem uma **skill dedicada de code-review** separada da audit gatilho. User-invoked (humano chama), sob demanda.
+
+Documentação completa em `commands/code-review.md`. Diferente da audit gatilho:
+
+| Audit gatilho (G1-G7) | Code-review (sob demanda) |
+|---|---|
+| Dispara automático em sub-tarefa de risco | Dispara em `/vibeshield-code-review` |
+| Foco em categoria C1-C8 | Foco em 2 eixos: Standards + Spec |
+| Output: OK/REVISAR/BLOQUEAR | Output: lista de achados + verdict |
+
+**Complementares, não substitutos.** Ver `commands/code-review.md` pra detalhes.
+
 ## O que você faz em cada modo
 
 ### Quando chamada por VibeDev (qualquer gatilho)
@@ -125,7 +139,8 @@ Não carrega tudo de uma vez. Carrega só o que precisa pro modo detectado. Se n
 
 ---
 
-**Versão**: 1.0.0  
-**Conformidade com handoff-vibedev**: 1.0.0 [sim]  
-**Adições ao envelope**: Nenhuma (estende renderização, não envelope técnico)  
-**Categorias adicionadas**: Nenhuma (C1-C8 preservadas como vocabulário fechado)
+**Versão**: 2.0.0  
+**Conformidade com handoff-vibedev**: 2.0.0 [sim]  
+**Adições ao envelope**: code-review (commands/code-review.md) — 2 eixos (Standards + Spec)  
+**Categorias adicionadas**: Nenhuma (C1-C8 preservadas como vocabulário fechado)  
+**Mudança de escopo**: adicionado `.out-of-scope/` espelhando padrão VibeDev; nova skill dedicada `code-review` sob demanda

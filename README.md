@@ -8,7 +8,7 @@
 
 [![VibeDev License](https://img.shields.io/github/license/4pixeltechBR/VibeDev?style=flat-square&color=blue)](LICENSE)
 [![GitHub stars](https://img.shields.io/github/stars/4pixeltechBR/VibeDev?style=flat-square)](https://github.com/4pixeltechBR/VibeDev/stargazers)
-[![Framework Version](https://img.shields.io/badge/version-3.5.0-emerald?style=flat-square)](vibedev/SKILL.md)
+[![Framework Version](https://img.shields.io/badge/version-3.6.0-emerald?style=flat-square)](vibedev/SKILL.md)
 
 **VibeDev** is a lightweight, rigorous governance framework specifically designed for AI-driven software development (Vibe Coding). Coupled with **VibeShield**, it provides automated security audits and native **Layman Mode** support.
 
@@ -72,6 +72,13 @@ The ecosystem automatically detects user profile via the `modo_usuario` field in
 - 🚫 **`.out-of-scope/`** — 7 documents explaining what VibeDev does NOT do (CI/CD, monorepo, issue tracker, low-code, replacement for VibeShield, stack recommendations, pretending to be VibeShield).
 - 🗣️ **Invocation model in SKILL.md** — explicit classification of all 11 commands + 7 silent rules as either `user-invoked` or `model-invoked-anunciado`. The adaptation twist from Pocock: we **announce** model-triggered actions instead of running them silently, because laymen need to see what the framework is doing.
 
+### 🆕 What's new in v3.6.0 (Changesets + VibeShield v2.0.0)
+
+- ⚙️ **Changesets workflow** at repo root — `pnpm changeset` style, inspired by mattpocock/skills. README at `.changeset/README.md`. First changeset is `initial-setup.md` (this release).
+- 🛡️ **VibeShield v2.0.0** — major version bump for scope change.
+  - **`vibeshield-code-review` skill** at `vibeshield/commands/code-review.md`. User-invoked. Review de diff/PR contra 2 eixos: **Standards** + **Spec**. Inspired by `code-review` de mattpocock/skills, mas adaptado pra revisar contra `PROJECT_STATE.md`.
+  - **`vibeshield/.out-of-scope/`** — 6 documents explaining what VibeShield does NOT do (pentest, replace DPO, replace SAST, runtime race conditions, transitive deps, replace VibeDev).
+
 ### 🛠️ How to Start
 
 1. Install the skills in your AI environment (see [INSTALL.md](./INSTALL.md)).
@@ -85,7 +92,7 @@ The ecosystem automatically detects user profile via the `modo_usuario` field in
 
 [![VibeDev License](https://img.shields.io/github/license/4pixeltechBR/VibeDev?style=flat-square&color=blue)](LICENSE)
 [![GitHub stars](https://img.shields.io/github/stars/4pixeltechBR/VibeDev?style=flat-square)](https://github.com/4pixeltechBR/VibeDev/stargazers)
-[![Versão do Framework](https://img.shields.io/badge/vers%C3%A3o-3.5.0-emerald?style=flat-square)](vibedev/SKILL.md)
+[![Versão do Framework](https://img.shields.io/badge/vers%C3%A3o-3.6.0-emerald?style=flat-square)](vibedev/SKILL.md)
 
 O **VibeDev** é um framework leve e rigoroso de governança para desenvolvimento assistido por IA (Vibe Coding). Integrado ao **VibeShield**, oferece auditorias automáticas de segurança e suporte nativo a **Modo Leigo**.
 
@@ -148,6 +155,13 @@ O ecossistema detecta automaticamente o perfil do usuário através do campo `mo
 - 🏛️ **`.agents/adr/`** — 6 Architecture Decision Records documentando decisões passadas e atuais (skill monolítica, modo país, 2 modos, anti-"tá", crédito Sandeco, model-invoked-anunciado).
 - 🚫 **`.out-of-scope/`** — 7 documentos explicando o que VibeDev NÃO faz (CI/CD, monorepo, issue tracker, low-code, substituir VibeShield, recomendações de stack, fingir ser VibeShield).
 - 🗣️ **Modelo de invocação no SKILL.md** — classificação explícita dos 11 comandos + 7 regras silenciosas como `user-invoked` ou `model-invoked-anunciado`. A adaptação do Pocock: a gente **anuncia** ações disparadas pelo modelo em vez de rodar silencioso, porque leigos precisam ver o que o framework tá fazendo.
+
+### 🆕 O que tem de novo no v3.6.0 (Changesets + VibeShield v2.0.0)
+
+- ⚙️ **Workflow de Changesets** na raiz do repo — estilo `pnpm changeset`, inspirado em mattpocock/skills. README em `.changeset/README.md`. Primeiro changeset é `initial-setup.md` (esse release).
+- 🛡️ **VibeShield v2.0.0** — bump de major version por mudança de escopo.
+  - **Skill `vibeshield-code-review`** em `vibeshield/commands/code-review.md`. User-invoked. Review de diff/PR contra 2 eixos: **Standards** + **Spec**. Inspirado no `code-review` de mattpocock/skills, mas adaptado pra revisar contra o `PROJECT_STATE.md`.
+  - **`vibeshield/.out-of-scope/`** — 6 documentos explicando o que VibeShield NÃO faz (pentest, substituir DPO, substituir SAST, race conditions em runtime, deps transitivas, substituir VibeDev).
 
 ### 🛠️ Como Começar
 

@@ -99,6 +99,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ---
 
+## [1.7.0] — 2026-07-24
+
+### Changed / Modificado
+
+- `.changeset/` directory added at repo root with `config.json` (Changesets workflow), `README.md` (how-to), and `initial-setup.md` (first changeset for v3.6.0). Inspired by mattpocock/skills using same tool. **Workflow not yet automated** — humans add changesets during PRs; bot is future work.
+
+[1.7.0]: https://github.com/4pixeltechBR/VibeDev/releases/tag/v3.6.0
+
+---
+
 ## [1.4.0] — 2026-07-10
 
 ### Added / Adicionado

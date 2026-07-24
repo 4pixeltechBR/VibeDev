@@ -8,6 +8,28 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ---
 
+## [2.0.0] — 2026-07-24
+
+### Added / Adicionado
+
+- **`vibeshield-code-review` skill** at `commands/code-review.md`. User-invoked (humano chama). Review de diff/PR contra 2 eixos: **Standards** (convenção do projeto) + **Spec** (cumpre critério de pronto da sub-tarefa). Complementa — não substitui — a audit gatilho (G1-G7).
+- **`vibeshield/.out-of-scope/`** directory with 6 documents explaining what VibeShield does NOT do: pentest, replace DPO/lawyer, replace SAST tools, cover runtime race conditions, audit transitive deps, replace VibeDev. Espelha padrão do VibeDev.
+
+### Changed / Modificado
+
+- `SKILL.md` agora referencia `vibeshield-code-review` como skill dedicada sob demanda.
+- Versão bumpada pra 2.0.0 por mudança de escopo (nova skill + out-of-scope não-trivial).
+
+### Backward compatible / Sem quebra de compatibilidade
+
+- Audit gatilho (G1-G7) preservada integralmente. C1-C8 inalteradas. Envelope inalterado.
+- Code-review é puramente aditiva. Quem não chamar `/vibeshield-code-review` não sente diferença.
+- Out-of-scope é só documentação. Não muda comportamento.
+
+[2.0.0]: https://github.com/4pixeltechBR/VibeDev/releases/tag/v3.6.0
+
+---
+
 ## [1.0.0] — 2026-06-30
 
 ### Added / Adicionado
