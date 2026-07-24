@@ -69,6 +69,36 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ---
 
+## [1.6.0] — 2026-07-24
+
+### Added / Adicionado
+
+- **`/vd-help` command** (`vibedev/commands/vd-help.md`). Router que mapeia os 11 comandos do VibeDev + situações emocionais + fluxo principal resumido. Inspirado em `ask-matt` do mattpocock/skills (referência competitiva), adaptado pra leigo com mapa emocional e atalhos de emergência. User-invoked.
+- **`.agents/adr/`** directory with 6 Architecture Decision Records:
+  - `0001-skill-monolitica.md` — por que VibeDev é 1 SKILL.md, não N skills
+  - `0002-modo-pais-generico.md` — por que 1 arquivo com 12 países, não 1 por país
+  - `0003-modos-leigo-tecnico.md` — por que 2 modos (não 3+)
+  - `0004-validacao-anti-ta.md` — por que /vd-check recusa "tá"
+  - `0005-citacao-sandeco-formal.md` — por que CREDITS.md existe
+  - `0006-model-invoked-anunciado.md` — por que anunciamos regras ao invés de silent
+- **`.out-of-scope/`** directory with 7 documents explaining what VibeDev does NOT do and why:
+  - `not-a-ci-cd-tool.md`, `not-for-monorepos.md`, `not-an-issue-tracker.md`, `not-a-low-code-builder.md`, `not-replacement-for-vibeshield.md`, `not-providing-stack-recommendations.md`, `not-pretending-to-be-vibeshield.md`
+
+### Changed / Modificado
+
+- `SKILL.md` agora tem seção **"Modelo de invocação"** com tabela user-invoked vs model-invoked-anunciado por comando. Decisão tomada em v3.4.0 ("Decisão Confiante") aplicada sistematicamente.
+- `CREDITS.md` agora cita mattpocock/skills como **referência competitiva** (não paper acadêmico), com lista explícita do que foi adotado e do que foi rejeitado.
+
+### Backward compatible / Sem quebra de compatibilidade
+
+- `/vd-help` é puramente aditivo (novo comando, não substitui nenhum).
+- ADRs e out-of-scope são apenas documentação. Não mudam comportamento.
+- Mudança de invocação (silent → announced) é **transparente** pro leigo: ele recebe a mesma automação, só agora **vê** quando rola.
+
+[1.6.0]: https://github.com/4pixeltechBR/VibeDev/releases/tag/v3.5.0
+
+---
+
 ## [1.4.0] — 2026-07-10
 
 ### Added / Adicionado

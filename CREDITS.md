@@ -52,7 +52,63 @@
 
 ## Open-source projects we learn from
 
-_Not yet populated. Entries will be added when specific projects measurably influenced a release._
+### mattpocock/skills — engineering agent skills
+
+- **Author:** Matt Pocock ([@mattpocock](https://github.com/mattpocock))
+- **Repository:** [github.com/mattpocock/skills](https://github.com/mattpocock/skills)
+- **First credited in release:** v3.5.0 (2026-07-24)
+- **Type of attribution:** competitive reference, not academic citation
+
+**What we adopted from this project (with adaptation):**
+
+1. **User-invoked vs model-invoked distinction** (`.agents/invocation.md`).
+   We adopted this with a twist: `model-invoked-anunciado` (announced) instead of
+   silent, because VibeDev's leigo audience needs to see what the framework is doing.
+   Documented in [`.agents/adr/0006-model-invoked-anunciado.md`](./.agents/adr/0006-model-invoked-anunciado.md).
+
+2. **Router skill pattern** (`ask-matt`).
+   We adopted this as `/vd-help` (`vibedev/commands/vd-help.md`).
+   Different from `ask-matt`: we mapped the 11 VibeDev commands plus emotional
+   situations (lost, exhausted, anxious), and added a 1-line "if you only remember
+   ONE command" summary.
+
+3. **`.out-of-scope/` discipline** (3+ files explaining what's NOT supported).
+   We adopted this as `4pixeltechBR/VibeDev/.out-of-scope/` with 7 files
+   documenting what VibeDev does NOT do and why. Each file follows the same
+   pattern: what we do, what we don't, why, what to use instead.
+
+4. **`.agents/adr/` structure** (dated, contextualized, immutable decisions).
+   We adopted this as `4pixeltechBR/VibeDev/.agents/adr/` with 6 ADRs covering
+   our past decisions (monolithic vs composed, country mode, layman mode, etc.)
+   and one new ADR about the model-invoked-anunciado pattern itself.
+
+**What we explicitly did NOT adopt:**
+
+- **Plugin marketplace** (`.claude-plugin/plugin.json`) — VibeDev is
+  multi-harness (Claude Code, Cursor, Codex, OpenCode, Antigravity). A Claude-only
+  plugin would be lock-in. See `.out-of-scope/not-pretending-to-be-vibeshield.md`
+  for related governance thinking.
+
+- **`npx skills@latest add`** — VibeDev skills are meant to be **edited by the user**
+  (especially in `modo_usuario: leigo` where the user customizes the framework).
+  Read-only installation via npx would conflict with that.
+
+- **Bucketed skill organization** (engineering/, productivity/, misc/, personal/,
+  in-progress/, deprecated/) — VibeDev is 1 SKILL.md monolithic by design.
+  See [`.agents/adr/0001-skill-monolitica.md`](./.agents/adr/0001-skill-monolitica.md).
+
+- **22 small composable skills** — VibeDev's value is unified state + continuous
+  flow for a single leigo. Splitting into 22 skills would make the framework
+  opaque to the audience we serve.
+
+**Why we cite this project:**
+
+Pocock's work represents a credible **counter-position** to VibeDev. He explicitly
+argues against "vibe coding" frameworks. We are not in ideological agreement,
+but his engineering hygiene (ADRs, out-of-scope, invocation contracts) is
+empirically useful. Adopting structural patterns from a project with different
+philosophy is how frameworks mature. We name him because transparency beats
+silence.
 
 ---
 
@@ -60,6 +116,9 @@ _Not yet populated. Entries will be added when specific projects measurably infl
 
 ### Mavis (MiniMax Agent)
 The agent harness used to author and maintain VibeDev itself. VibeDev's full lifecycle was developed inside Mavis sessions, which gave direct empirical feedback on every framework addition.
+
+### Changesets (planned v3.6.0)
+Adoption of [Changesets](https://github.com/changesets/changesets) for version management. Inspired by mattpocock/skills using the same tool. **Not yet active** — planned for next release.
 
 ---
 

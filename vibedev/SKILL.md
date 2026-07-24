@@ -99,7 +99,67 @@ consultar profissional local.
 
 ---
 
+## Modelo de invocação (user-invoked × model-invoked-anunciado)
+
+Inspirado por [mattpocock/skills](https://github.com/mattpocock/skills) (referência competitiva, ver `CREDITS.md`), mas com adaptação pra público leigo.
+
+Cada comando ou regra tem **um** de dois tipos de invocação:
+
+- **User-invoked** — só o humano chama. O modelo **nunca** dispara sozinho. Comandos terminais / decisões humanas.
+- **Model-invoked-anunciado** — o modelo dispara sozinho, **mas anuncia o que tá fazendo em linguagem clara**, e dá chance de veto. Usado pra regras que devem rodar toda vez mas onde o leigo se beneficia de saber.
+
+Exemplo de model-invoked-anunciado em ação:
+
+```
+IA: "Tô detectando que faz 9 dias que você não mexe.
+Vou aplicar o recap automático. Se quiser pular, fala 'pula recap'."
+```
+
+**Por que não silencioso?** Porque leigo que não sabe o que tá acontecendo vira refém do framework. Auditabilidade > automação. Ver `.agents/adr/0006-model-invoked-anunciado.md`.
+
+### Tabela de invocação por comando
+
+| Comando | Tipo | Justificativa |
+|---|---|---|
+| `/vd-start` | User-invoked | Decisão de bootstrap, humano controla |
+| `/vd-spark` | User-invoked (auto-detectável) | Pode auto-detectar projeto novo + intenção ambígua |
+| `/vd-help` | User-invoked | Pedido de orientação, humano chama |
+| `/vd-status` | User-invoked + model-anunciado (recap 7+ dias) | Humano chama, modelo anuncia recap se faz tempo |
+| `/vd-plan` | User-invoked | Decisão de plano, humano valida |
+| `/vd-build` | User-invoked | Execução deliberada |
+| `/vd-check` | User-invoked | Validação humana |
+| `/vd-kill` | User-invoked | Decisão terminal, humano decide |
+| `/vd-close` | User-invoked | Encerramento formal |
+| `/vd-compact` | User-invoked (auto-sugerido em /vd-close) | Manutenção, humano opta |
+| `/vd-launch` | User-invoked (gate Fase 7→8) | Só dispara após gate, mas gate humano |
+
+### Tabela de invocação por regra silenciosa
+
+| Regra | Tipo | Anúncio padrão |
+|---|---|---|
+| Glossário Ativo (modo leigo) | Model-anunciado | "Tô traduzindo jargão pra linguagem simples" |
+| Anti-Feature-Creep | Model-anunciado | "Tô vendo que isso aqui é ideia nova, anoto no backlog" |
+| Modo País auto-detectado | Model-anunciado | "Tô detectando contexto [BR/EUA/...], ativo modo" |
+| Recap Automático (7+ dias) | Model-anunciado | "Faz X dias, vou aplicar recap" |
+| Validação Anti-"tá" (vd-check) | Model-anunciado | "Não entendi se isso aconteceu. Reformula: aconteceu AGORA?" |
+| Decisão Confiante (leigo) | Model-anunciado | "Vou escolher X porque Y. Topa ou quer entender?" |
+| Reconhecimento & Pausa (gate) | Model-anunciado | "Fase X fechada. Quer dar uma respirada antes de mergulhar?" |
+
+---
+
 ## Comandos VibeDev
+
+### `/vd-help`
+**Router. Use quando você tá perdido, não sabe qual comando chamar, ou o framework te deixou confuso.**
+
+Caminho completo em `commands/vd-help.md`. Mostra:
+- Mapa mental do ciclo normal (spark → start → status → plan → build → check → ...)
+- Comandos por fase do projeto
+- Comandos por situação emocional (animado, exausto, confuso, ansioso)
+- Fluxo principal resumido (1 linha por comando)
+- Comando de emergência: `/vd-kill`
+
+Inspirado em `ask-matt` do mattpocock/skills (referência competitiva), mas adaptado pra leigo com mapa emocional + atalhos de emergência.
 
 ### `/vd-start`
 **Diagnóstico inicial — define a trilha.**

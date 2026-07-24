@@ -60,6 +60,28 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ---
 
+## [3.5.0] — 2026-07-24
+
+### Added / Adicionado
+
+- **VibeDev v1.6.0**: Structural improvements inspired by mattpocock/skills.
+  - 🧭 **`/vd-help` command** — router. See [release notes](./docs/releases/v3.5.0.md).
+  - 🏛️ **`.agents/adr/`** — 6 Architecture Decision Records documenting past and current design choices.
+  - 🚫 **`.out-of-scope/`** — 7 documents explaining what VibeDev does NOT do.
+  - 🗣️ **Invocation model in SKILL.md** — explicit user-invoked vs model-invoked-anunciado classification for all 11 commands and 7 silent rules.
+
+### Changed / Modificado
+
+- CREDITS.md now cites mattpocock/skills as **competitive reference** (not academic), listing what was adopted and what was rejected.
+
+### Backward compatible / Sem quebra de compatibilidade
+
+- All additions are documentation + 1 new command. Existing behavior unchanged.
+
+[3.5.0]: https://github.com/4pixeltechBR/VibeDev/releases/tag/v3.5.0
+
+---
+
 ## [3.3.0] — 2026-07-10
 
 ### Added / Adicionado
