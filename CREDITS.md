@@ -73,14 +73,22 @@
    ONE command" summary.
 
 3. **`.out-of-scope/` discipline** (3+ files explaining what's NOT supported).
-   We adopted this as `4pixeltechBR/VibeDev/.out-of-scope/` with 7 files
-   documenting what VibeDev does NOT do and why. Each file follows the same
+   We adopted this as `4pixeltechBR/VibeDev/.out-of-scope/` with 8 files (7 VibeDev + 1 VibeShield)
+   documenting what each skill does NOT do and why. Each file follows the same
    pattern: what we do, what we don't, why, what to use instead.
 
 4. **`.agents/adr/` structure** (dated, contextualized, immutable decisions).
-   We adopted this as `4pixeltechBR/VibeDev/.agents/adr/` with 6 ADRs covering
+   We adopted this as `4pixeltechBR/VibeDev/.agents/adr/` with 9 ADRs covering
    our past decisions (monolithic vs composed, country mode, layman mode, etc.)
    and one new ADR about the model-invoked-anunciado pattern itself.
+
+5. **Architecture audit pattern** (`codebase-design` + `improve-codebase-architecture`).
+   We referenced Matt's vocabulary (deep modules, seams, adapters, leverage, locality)
+   in `/vd-arch-review` (`vibedev/commands/vd-arch-review.md`) and its 3 levels
+   of analysis (macro/meso/micro). Different from Matt's: we operate in 3 levels
+   (not continuous), persist results in `ARCH_MAP.md` + `.arch-review/`, and
+   make it user-invoked only (Matt's is `disable-model-invocation: true` too,
+   but he integrates it more tightly into his flow).
 
 **What we explicitly did NOT adopt:**
 

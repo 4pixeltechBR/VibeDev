@@ -12,8 +12,11 @@ Inspirado por `ask-matt` em [mattpocock/skills](https://github.com/mattpocock/sk
 
 ## O que é
 
-Você tem 11 comandos. Não precisa decorar todos. O `/vd-help` olha onde
+Você tem 12 comandos. Não precisa decorar todos. O `/vd-help` olha onde
 você tá no projeto e sugere **o próximo passo concreto**.
+
+**Nota:** o 12º comando é `/vd-arch-review` — auditoria arquitetural pra
+devs. Leigos podem ignorar.
 
 ## Mapa mental — o ciclo normal
 

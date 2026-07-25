@@ -18,3 +18,4 @@ Antes de abrir issue ou PR pedindo uma feature nova, verifique aqui. Se a featur
 | `not-replacement-for-vibeshield.md` | VibeShield é satélite, não deve ser mergeado em VibeDev |
 | `not-providing-stack-recommendations.md` | Não diz "use X framework" — apresenta opções com trade-offs |
 | `not-pretending-to-be-vibeshield.md` | VibeDev não faz auditoria de segurança (papel da VibeShield) |
+| `not-an-arch-audit-tool.md` | VibeDev não substitui architect humano (papel do `/vd-arch-review`) |

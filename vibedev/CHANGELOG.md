@@ -109,6 +109,36 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ---
 
+## [1.8.0] — 2026-07-25
+
+### Added / Adicionado
+
+- **`/vd-arch-review` command** (`vibedev/commands/vd-arch-review.md`). 3ª skill satélite da família VibeDev, user-invoked, para devs. 3 sub-comandos:
+  - `/vd-arch-full` — macro + meso + micro (stack, arquitetura, saúde)
+  - `/vd-arch-only` — só meso (arquitetura + componentes + fluxos)
+  - `/vd-arch-health` — só micro (saúde + débito técnico)
+- **3 reference prompts** (`vibedev/references/arch-review-{macro,meso,micro}.md`) com listas concretas de verificação por nível. Inspirado na escada de 5 níveis de Sandeco Macedo (arXiv:2607.00038) e em `improve-codebase-architecture` de mattpocock/skills.
+- **2 templates** (`vibedev/assets/ARCH_MAP-template.md` + `vibedev/assets/arch-review-template.md`) para o documento mestre e os sub-relatórios.
+- **2 ADRs** (`.agents/adr/0008-vd-arch-review-skill.md` + `.agents/adr/0009-arch-review-multi-nivel.md`).
+- **`.out-of-scope/not-an-arch-audit-tool.md`** — explicita o que `/vd-arch-review` NÃO faz (não substitui architect, não refatora, não roda testes, etc).
+
+### Changed / Modificado
+
+- `SKILL.md` agora tem 12 comandos. Tabela de invocação atualizada.
+- `commands/vd-help.md` menciona o 12º comando e indica que leigos podem ignorar.
+- `CREDITS.md` agora cita `codebase-design` + `improve-codebase-architecture` de Matt como vocabulário referenciado.
+
+### Backward compatible / Sem quebra de compatibilidade
+
+- `/vd-arch-review` é puramente aditivo. Quem não chamar, não sente diferença.
+- Não escreve em `PROJECT_STATE.md` (estado do projeto é governado por VibeDev). Escreve em `ARCH_MAP.md` próprio.
+- **Não** ativa modo leigo. User-invoked, opt-in.
+- G6 da VibeShield **não** dispara `/vd-arch-review` (decisão explícita: arquitetura é chamada humana, não auto).
+
+[1.8.0]: https://github.com/4pixeltechBR/VibeDev/releases/tag/v3.7.0
+
+---
+
 ## [1.4.0] — 2026-07-10
 
 ### Added / Adicionado

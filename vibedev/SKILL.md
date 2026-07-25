@@ -132,6 +132,8 @@ Vou aplicar o recap automático. Se quiser pular, fala 'pula recap'."
 | `/vd-close` | User-invoked | Encerramento formal |
 | `/vd-compact` | User-invoked (auto-sugerido em /vd-close) | Manutenção, humano opta |
 | `/vd-launch` | User-invoked (gate Fase 7→8) | Só dispara após gate, mas gate humano |
+| `/vd-help` | User-invoked | Pedido de orientação, humano chama |
+| `/vd-arch-review` | User-invoked | Skill de dev, opt-in, não ativa modo leigo |
 
 ### Tabela de invocação por regra silenciosa
 
@@ -160,6 +162,20 @@ Caminho completo em `commands/vd-help.md`. Mostra:
 - Comando de emergência: `/vd-kill`
 
 Inspirado em `ask-matt` do mattpocock/skills (referência competitiva), mas adaptado pra leigo com mapa emocional + atalhos de emergência.
+
+### `/vd-arch-review`
+**Auditoria arquitetural de código. User-invoked, para devs.**
+
+Skill satélite (3ª da família, depois de VibeDev e VibeShield). Documentação completa em `commands/vd-arch-review.md`. Tem 3 sub-comandos:
+- `/vd-arch-full` — nível 1 (macro) + 2 (meso) + 3 (micro)
+- `/vd-arch-only` — só nível 2 (arquitetura + componentes)
+- `/vd-arch-health` — só nível 3 (saúde + débito técnico)
+
+Detecta: separação de camadas, anti-patterns, vazamento de abstração, acoplamento, dependências externas vs código customizado, cobertura de testes. Persiste em `ARCH_MAP.md` + `.arch-review/`.
+
+Inspirado em `improve-codebase-architecture` de mattpocock/skills e na escada de 5 níveis de Sandeco Macedo (arXiv:2607.00038).
+
+**Não** ativa modo leigo. User-invoked, opt-in.
 
 ### `/vd-start`
 **Diagnóstico inicial — define a trilha.**

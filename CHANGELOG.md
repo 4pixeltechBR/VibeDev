@@ -102,6 +102,27 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ---
 
+## [3.7.0] — 2026-07-25
+
+### Added / Adicionado
+
+- **VibeDev v1.8.0**: 3ª skill satélite da família.
+  - 🏛️ **`/vd-arch-review`** — auditoria arquitetural de código. See [release notes](./docs/releases/v3.7.0.md).
+  - 3 sub-comandos: `/vd-arch-full`, `/vd-arch-only`, `/vd-arch-health`.
+  - Detecta separação de camadas, anti-patterns, vazamento de abstração, acoplamento, dep vs custom, cobertura de testes.
+  - Estado persistente em `ARCH_MAP.md` + `.arch-review/`.
+  - User-invoked, opt-in, não ativa modo leigo.
+
+### Backward compatible / Sem quebra de compatibilidade
+
+- 12º comando puramente aditivo.
+- Não escreve em `PROJECT_STATE.md` (estado do projeto intocado).
+- Leigo pode ignorar completamente.
+
+[3.7.0]: https://github.com/4pixeltechBR/VibeDev/releases/tag/v3.7.0
+
+---
+
 ## [3.3.0] — 2026-07-10
 
 ### Added / Adicionado

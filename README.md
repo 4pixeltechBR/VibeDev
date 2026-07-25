@@ -8,7 +8,7 @@
 
 [![VibeDev License](https://img.shields.io/github/license/4pixeltechBR/VibeDev?style=flat-square&color=blue)](LICENSE)
 [![GitHub stars](https://img.shields.io/github/stars/4pixeltechBR/VibeDev?style=flat-square)](https://github.com/4pixeltechBR/VibeDev/stargazers)
-[![Framework Version](https://img.shields.io/badge/version-3.6.0-emerald?style=flat-square)](vibedev/SKILL.md)
+[![Framework Version](https://img.shields.io/badge/version-3.7.0-emerald?style=flat-square)](vibedev/SKILL.md)
 
 **VibeDev** is a lightweight, rigorous governance framework specifically designed for AI-driven software development (Vibe Coding). Coupled with **VibeShield**, it provides automated security audits and native **Layman Mode** support.
 
@@ -79,6 +79,18 @@ The ecosystem automatically detects user profile via the `modo_usuario` field in
   - **`vibeshield-code-review` skill** at `vibeshield/commands/code-review.md`. User-invoked. Review de diff/PR contra 2 eixos: **Standards** + **Spec**. Inspired by `code-review` de mattpocock/skills, mas adaptado pra revisar contra `PROJECT_STATE.md`.
   - **`vibeshield/.out-of-scope/`** — 6 documents explaining what VibeShield does NOT do (pentest, replace DPO, replace SAST, runtime race conditions, transitive deps, replace VibeDev).
 
+### 🆕 What's new in v3.7.0 (3rd Satellite Skill — `/vd-arch-review`)
+
+- 🏛️ **`/vd-arch-review` command** — 3ª skill satélite da família VibeDev, user-invoked, para devs. See `vibedev/commands/vd-arch-review.md`. 3 sub-comandos:
+  - `/vd-arch-full` — macro + meso + micro
+  - `/vd-arch-only` — só arquitetura + componentes
+  - `/vd-arch-health` — só saúde + débito técnico
+- 🎯 **Detecta os 3 buracos que faltavam**: separação de camadas (UI/domínio/infra), anti-patterns de código, dependências externas vs código customizado. + acoplamento, vazamento de abstração, cobertura de testes.
+- 📊 **Estado persistente** em `ARCH_MAP.md` + `.arch-review/` (4 sub-relatórios).
+- 🎨 **Diagramas Mermaid** (componentes, sequência, ERD).
+- 🛠️ **Vocabulário de mattpocock/skills `codebase-design`** (deep modules, seams, adapters) referenciado.
+- 📚 **Inspirado em Sandeco Macedo (arXiv:2607.00038)** escada de 5 níveis, adaptada pra 3.
+
 ### 🛠️ How to Start
 
 1. Install the skills in your AI environment (see [INSTALL.md](./INSTALL.md)).
@@ -92,7 +104,7 @@ The ecosystem automatically detects user profile via the `modo_usuario` field in
 
 [![VibeDev License](https://img.shields.io/github/license/4pixeltechBR/VibeDev?style=flat-square&color=blue)](LICENSE)
 [![GitHub stars](https://img.shields.io/github/stars/4pixeltechBR/VibeDev?style=flat-square)](https://github.com/4pixeltechBR/VibeDev/stargazers)
-[![Versão do Framework](https://img.shields.io/badge/vers%C3%A3o-3.6.0-emerald?style=flat-square)](vibedev/SKILL.md)
+[![Versão do Framework](https://img.shields.io/badge/vers%C3%A3o-3.7.0-emerald?style=flat-square)](vibedev/SKILL.md)
 
 O **VibeDev** é um framework leve e rigoroso de governança para desenvolvimento assistido por IA (Vibe Coding). Integrado ao **VibeShield**, oferece auditorias automáticas de segurança e suporte nativo a **Modo Leigo**.
 
@@ -162,6 +174,18 @@ O ecossistema detecta automaticamente o perfil do usuário através do campo `mo
 - 🛡️ **VibeShield v2.0.0** — bump de major version por mudança de escopo.
   - **Skill `vibeshield-code-review`** em `vibeshield/commands/code-review.md`. User-invoked. Review de diff/PR contra 2 eixos: **Standards** + **Spec**. Inspirado no `code-review` de mattpocock/skills, mas adaptado pra revisar contra o `PROJECT_STATE.md`.
   - **`vibeshield/.out-of-scope/`** — 6 documentos explicando o que VibeShield NÃO faz (pentest, substituir DPO, substituir SAST, race conditions em runtime, deps transitivas, substituir VibeDev).
+
+### 🆕 O que tem de novo no v3.7.0 (3ª Skill Satélite — `/vd-arch-review`)
+
+- 🏛️ **Comando `/vd-arch-review`** — 3ª skill satélite da família VibeDev, user-invoked, pra devs. Ver `vibedev/commands/vd-arch-review.md`. 3 sub-comandos:
+  - `/vd-arch-full` — macro + meso + micro
+  - `/vd-arch-only` — só arquitetura + componentes
+  - `/vd-arch-health` — só saúde + débito técnico
+- 🎯 **Detecta os 3 buracos que faltavam**: separação de camadas (UI/domínio/infra), anti-patterns de código, dependências externas vs código customizado. + acoplamento, vazamento de abstração, cobertura de testes.
+- 📊 **Estado persistente** em `ARCH_MAP.md` + `.arch-review/` (4 sub-relatórios).
+- 🎨 **Diagramas Mermaid** (componentes, sequência, ERD).
+- 🛠️ **Vocabulário de mattpocock/skills `codebase-design`** (deep modules, seams, adapters) referenciado.
+- 📚 **Inspirado em Sandeco Macedo (arXiv:2607.00038)** escada de 5 níveis, adaptada pra 3.
 
 ### 🛠️ Como Começar
 
