@@ -475,6 +475,11 @@ Executa nesta ordem:
    - Algum item verdadeiro → sugira: *"O estado está crescendo — quer
      compactar agora? (`/vd-compact`)"*. Sim → execute a compactação aqui
      mesmo, antes do passo 5. Não/depois → segue o fechamento normal.
+4.5. **Gera/atualiza `MANUAL.md` do projeto (v3.8+):** dispare
+   `/vd-manual` automaticamente. Ele lê o estado e gera/atualiza o manual
+   com 5 seções (Visão geral, Como rodar, Como usar, Como estender,
+   Troubleshooting). Opt-out com flag `--no-manual`. Ver
+   `commands/vd-manual.md`.
 5. Confirma: "Sessão encerrada. Na próxima sessão, comece com `/vd-status`."
 
 Sem este comando, a continuidade na próxima sessão é frágil.
