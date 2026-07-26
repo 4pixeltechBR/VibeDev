@@ -196,6 +196,53 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ---
 
+## [2.0.0] — 2026-07-26
+
+### Added / Adicionado
+
+> 🚀 **v3.9.0 — Motor de Fundação Técnica.** Novo sub-comando `/vd-scaffold` que roda DENTRO de `/vd-build` quando a Trilha é Verde, a fase é **Arquitetura**, e a sub-tarefa envolve fundação (DB, auth, pagamento, multi-tenant, white-label). **Stack é decisão Tipo 1** — nunca fixa. Inspirado no Prompt Mestre WP da Dante Testa, mas open source, stack-agnostic, e integrado com a v3.8 (Advogado do Diabo dispara quando triagem discorda do `PROJECT_STATE`).
+
+- **`/vd-scaffold` sub-comando** (`vibedev/commands/vd-scaffold.md`). Ativado automaticamente como gate no `/vd-build` (passo pós-Aprovação, pré-codificação). Triagem Cynefin-lite (3 perguntas máximo) + Red Team + 4 componentes reais gerados.
+
+- **6 references do scaffold:**
+  - `vibedev/references/scaffold-stack-validada.md` — 3 stacks por perfil Cynefin (Complicado/Simples/Caótico) + detalhamento FastAPI+React+TS+Postgres, Next.js+SQLite, e caso de borda (legado).
+  - `vibedev/references/scaffold-schema-migrations.md` — schema agnóstico com 6 regras obrigatórias (id, created/updated, soft delete, índices, FK com ondelete, multi-tenancy) + exemplos em Alembic e Drizzle.
+  - `vibedev/references/scaffold-rbac.md` — matriz RBAC 4-dimensional (Role × Recurso × Ação × Escopo), template + 3 opções de implementação (coluna simples, tabela de permissões, Casbin/Oso).
+  - `vibedev/references/scaffold-pagamento-br.md` — pagamento **BR-first** (PIX + Mercado Pago + Asaas como primários, Stripe como fallback). Webhook idempotente obrigatório (UNIQUE em `(provider, event_id)`). Reconciliação de PIX pendente >1h. Compliance LGPD Art. 46 + PCI-DSS 4.0.
+  - `vibedev/references/scaffold-white-label.md` — tokens parametrizados por tenant (cores, fontes, logo, favicon, domínio, email de suporte). 3 opções (CSS vars, Tailwind, Emotion). Proibido hardcode (gate H2 sugerido).
+  - `vibedev/references/scaffold-legado-coexistencia.md` — caso de borda Cynefin (WordPress, ERP, planilha). Sempre tratado como Tipo 1 de alta incerteza. 3 opções: manter legado, migrar tudo, sincronização bidirecional (Strangler Fig + CDC).
+
+- **Gate do Advogado do Diabo (v3.8) estendido para scaffold:** se `Stack decidida` em `PROJECT_STATE.md` está preenchida MAS a triagem sugere outra, dispara `/vd-devils-advocate` com a tensão como contradição interna. Tensão stack registrada → decisão consciente, não automática.
+
+- **Métrica `stack_trocada`** no `PROJECT_STATE.md`: incrementa se a stack escolhida na Triagem for revertida depois. Sinal de que a Triagem está errando — se subir, revisar as 3 perguntas antes de revisar o código.
+
+### Changed / Modificado
+
+- `SKILL.md` agora tem 13 comandos (12 + `/vd-scaffold` como sub-comando). Tabela de invocação atualizada. Gate explícito no `/vd-build`.
+- 3 templates de `PROJECT_STATE.md` ganham campo `stack_trocada` em `## Métricas do framework`.
+- Lista de comandos (linha 11) inclui `/vd-scaffold`.
+
+### Backward compatible / Sem quebra de compatibilidade
+
+- `/vd-scaffold` só roda se Trilha = Verde + Fase = 3 + sub-tarefa envolve fundação. Em qualquer outro contexto, é no-op.
+- Opt-out via flag `--skip-scaffold` no `/vd-build`.
+- 3 famílias de skills (VibeDev, VibeShield, vd-arch-review) inalteradas. `/vd-scaffold` é **sub-comando de VibeDev**, não 4ª skill.
+- Compatível com v3.8 (Advogado do Diabo) — integra, não substitui.
+
+### Inspired by / Inspirado por
+
+- **Dante Testa — Prompt Mestre WordPress v1.14.0** (jul/2026) — gerador de fundação com pagamento próprio e webhook idempotente. Esta release é a versão open source e stack-agnostic.
+- **Cynefin Framework** (Dave Snowden, 1999) — base da Triagem Complicado/Simples/Caótico.
+- **Strangler Fig Pattern** (Martin Fowler, 2004) — base da coexistência com legado.
+- **Change Data Capture** (Debezium, 2015+) — base da sincronização bidirecional.
+- **PCI-DSS 4.0** (2024) — base de segurança de pagamento.
+- **LGPD Art. 46** (Brasil, 2020) — base de privacidade em pagamento.
+- **CSS Custom Properties** — base de white-label agnóstico.
+
+[2.0.0]: https://github.com/4pixeltechBR/VibeDev/releases/tag/v3.9.0
+
+---
+
 ## [1.4.0] — 2026-07-10
 
 ### Added / Adicionado
