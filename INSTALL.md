@@ -423,3 +423,15 @@ seu-projeto/
 - `.agents/adr/` — 9 Architecture Decision Records
 - `.out-of-scope/` (raiz) — 8 docs do que VibeDev NÃO faz
 - `vibeshield/.out-of-scope/` — 6 docs do que VibeShield NÃO faz
+
+## 📦 Pacotes pré-montados (download direto)
+
+Se você só quer instalar (sem clonar repo), baixe os zips pré-montados:
+
+- **Claude Code:** [`releases/v3.7.0/VibeDev-v3.7.0-DEV-CLAUDE-CODE.zip`](./releases/v3.7.0/) (144 KB, install completo)
+- **Cursor:** [`releases/v3.7.0/VibeDev-v3.7.0-DEV-CURSOR.zip`](./releases/v3.7.0/) (28 KB, só `SKILL.md`)
+- **Antigravity / OpenCode / Codex:** [`releases/v3.7.0/VibeDev-v3.7.0-DEV-MULTI.zip`](./releases/v3.7.0/) (152 KB, install completo)
+
+Ou baixe direto da [GitHub Release v3.7.0](https://github.com/4pixeltechBR/VibeDev/releases/tag/v3.7.0) → seção **Assets**.
+
+Cada zip contém `INSTALL.md` dentro dele. Ver `releases/v3.7.0/README.md` pra detalhes.
