@@ -27,6 +27,18 @@
 
 ---
 
+## Autoria (opcional, v3.8+)
+<!-- Se preenchido, cada arquivo gerado pelo agente recebe um header
+     de assinatura automática. Gera proveniência, rastreabilidade e
+     conformidade com regulações tipo LGPD/AI Act. Se vazio, sem header. -->
+- **Nome:**
+- **Email:**
+- **Organização:**
+- **Incluir header de assinatura nos arquivos:** [ ] sim · [ ] não
+- **Formato de header preferido:** [comentário de linha da linguagem] · [bloco de licença curto] · [não incluir]
+
+---
+
 ## Mapa de fases
 - [ ] FASE 1 — Validação
 - [ ] FASE 2 — Especificação

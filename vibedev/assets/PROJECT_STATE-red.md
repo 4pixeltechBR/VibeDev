@@ -27,6 +27,18 @@
 
 ---
 
+## Autoria (opcional, v3.8+)
+<!-- Mesmo bloco do template green. Se preenchido, cada arquivo gerado
+     recebe header de assinatura. Útil em Trilha Vermelha para distinguir
+     código novo (assinado) de código legado (não assinado). -->
+- **Nome:**
+- **Email:**
+- **Organização:**
+- **Incluir header de assinatura apenas em arquivos NOVOS:** [ ] sim · [ ] não
+- **Marcar arquivos NOVOS vs legados:** [ ] sim (com suffix `[NOVO]`) · [ ] não
+
+---
+
 ## Mapa de fases
 - [ ] FASE R1 — Arqueologia
 - [ ] FASE R2 — Triagem

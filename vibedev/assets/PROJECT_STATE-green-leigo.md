@@ -29,6 +29,16 @@
 
 ---
 
+## Autoria (opcional, v3.8+)
+<!-- Se você preencher, cada arquivo que o agente criar vai ter seu nome
+     no topo, como uma assinatura. Isso ajuda a provar que foi VOCÊ quem
+     fez, em caso de dúvida. É opcional — se preferir não colocar, sem problema. -->
+- **Seu nome:**
+- **Seu email (se quiser):**
+- **Incluir seu nome nos arquivos:** [ ] sim · [ ] não
+
+---
+
 ## Mapa de fases (versão simples)
 <!-- 5 fases em vez de 8. Linguagem leiga. Cada fase tem exemplos 
      do que se faz nela pra você não se perder. -->
