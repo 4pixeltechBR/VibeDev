@@ -8,7 +8,7 @@ description: >
   Antigravity, OpenCode, Codex e qualquer AI coding assistant.
   SEMPRE ative quando o usuário mencionar: novo projeto, quero construir,
   meu projeto está uma bagunça, preciso organizar meu código, vibe coding,
-  /vd-start, /vd-status, /vd-plan, /vd-build, /vd-check, /vd-close, /vd-compact,
+  /vd-start, /vd-status, /vd-plan, /vd-build, /vd-scaffold, /vd-check, /vd-close, /vd-compact,
   ou quando existir PROJECT_STATE.md na raiz do projeto.
 ---
 
@@ -127,6 +127,7 @@ Vou aplicar o recap automático. Se quiser pular, fala 'pula recap'."
 | `/vd-status` | User-invoked + model-anunciado (recap 7+ dias) | Humano chama, modelo anuncia recap se faz tempo |
 | `/vd-plan` | User-invoked | Decisão de plano, humano valida |
 | `/vd-build` | User-invoked | Execução deliberada |
+| `/vd-scaffold` | User-invoked + auto-gate em `/vd-build` (Fase 3 + fundação) | Triagem Cynefin, schema, RBAC, pagamento BR, white-label |
 | `/vd-check` | User-invoked | Validação humana |
 | `/vd-kill` | User-invoked | Decisão terminal, humano decide |
 | `/vd-close` | User-invoked | Encerramento formal |
@@ -423,6 +424,15 @@ Regras de execução:
 - Ao concluir cada sub-tarefa: informe o usuário e aguarde confirmação
   antes de iniciar a próxima.
 - Ao concluir o plano inteiro: atualize `PROJECT_STATE.md`.
+
+**Gate do `/vd-scaffold` (v3.9+):** se a Trilha for Verde, a fase atual
+for **Fase 3 — Arquitetura**, e a sub-tarefa envolver qualquer um destes —
+modelagem de dados, autenticação/permissões, pagamentos, multi-tenancy,
+white-label, estrutura inicial de pastas — dispare `/vd-scaffold`
+automaticamente ANTES de começar a codar. O scaffold faz Triagem Cynefin,
+Red Team, gera schema/RBAC/pagamento/white-label reais, e devolve a
+sub-tarefa pronta para `/vd-check`. Ver `commands/vd-scaffold.md` e as
+6 references `scaffold-*.md`. Opt-out com flag `--skip-scaffold`.
 
 ---
 
