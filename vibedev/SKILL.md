@@ -390,6 +390,11 @@ alimentar `/vd-plan` formal.
    - **Tipo 2** (reversível e barata): tudo o que não é Tipo 1.
 4. Para cada Tipo 1 identificado: apresente 3 opções com prós, contras e
    custos ocultos. Aplique Red Team na opção recomendada (ver `references/`).
+4.5. **Gate do Advogado do Diabo (v3.8+):** antes de seguir, dispare
+   `/vd-devils-advocate` na decisão Tipo 1. O usuário deve responder
+   Top 3 riscos, 1 contradição interna, 1 ângulo cego antes de prosseguir.
+   Opt-out com flag `--skip-devils-advocate` (auto-skip em decisões triviais).
+   Ver `commands/vd-devils-advocate.md`.
 5. Para cada sub-tarefa, estime esforço relativo: 🟢 pequeno (~15 min),
    🟡 médio (~1h), 🔴 grande (~2h+). Estimativa grosseira — ajuda a
    planejar a sessão e decidir onde parar, não é compromisso de tempo.
