@@ -139,6 +139,63 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ---
 
+## [1.9.0] — 2026-07-26
+
+### Added / Adicionado
+
+> 🚀 **v3.8.0 — Orquestração em camadas.** 3 features coordenadas que fecham o ciclo de governança: rastreabilidade, pré-mortem e onboarding. Inspirado no Prompt Mestre WP de Dante Testa (jul/2026), mas open source e stack-agnostic.
+
+- **Feature 1 — Assinatura de autoria opcional em arquivos gerados** (`vibedev/references/autoria-arquivos.md`).
+  - Bloco `## Autoria` adicionado aos 3 templates de `PROJECT_STATE.md` (green, green-leigo, red).
+  - Quando opt-in, cada arquivo gerado pelo agente recebe header de assinatura com nome, email, projeto, data, licença.
+  - Formato do header adapta à linguagem: `//` (JS/TS/Go/PHP), `#` (Python/Ruby/Shell), `<!-- -->` (HTML/MD), `--` (SQL/Lua), `(* *)` (Pascal).
+  - Formatos sem comentário (JSON, CSV, binário) recebem companion `.meta.json`.
+  - `.env.example` NUNCA recebe header (risco de vazamento).
+  - Trilha Vermelha tem flag adicional `[NOVO]` para arquivos novos vs `[EDITADO]` para modificados.
+  - Compliance: LGPD Art. 37 (Brasil) + EU AI Act Art. 12 (Europa).
+  - Comportamento default: zero header. Opt-in estrito.
+
+- **Feature 2 — Advogado do Diabo como gate no `/vd-plan`** (`vibedev/commands/vd-devils-advocate.md`).
+  - Novo sub-comando dispara automaticamente como gate no passo 4.5 do `/vd-plan` (após Red Team, antes de estimativa).
+  - Gera 3 entregas obrigatórias: top 3 riscos (prob × impacto), 1 contradição interna, 1 ângulo cego.
+  - Bloqueia progress até resposta do usuário nos 5 itens.
+  - Opt-out via flag `--skip-devils-advocate`. Auto-skip em decisões triviais.
+  - Inspirado em Gary Klein (HBR 2007) "Performing a Project Premortem" + Atul Gawande (2009) "The Checklist Manifesto".
+
+- **Feature 3 — MANUAL.md automático no `/vd-close`** (`vibedev/commands/vd-manual.md`).
+  - Novo sub-comando dispara automaticamente como gate no passo 4.5 do `/vd-close` (após compactação, antes da confirmação).
+  - Gera/atualiza `MANUAL.md` com 5 seções: Visão geral, Como rodar, Como usar, Como estender, Troubleshooting.
+  - Adapta ao `modo_usuario` (leigo: linguagem simples, sem paths absolutos; técnico: paths absolutos, classes, funções).
+  - Preserva seções customizadas se `MANUAL.md` já existe.
+  - Opt-out via flag `--no-manual`.
+
+- **ADR 0010** (`.agents/adr/0010-v3-8-orquestracao-camadas.md`): documenta contexto, decisão, consequências e alternativas rejeitadas das 3 features.
+
+### Changed / Modificado
+
+- `SKILL.md` agora tem passo 4.5 no `/vd-plan` (gate do Advogado do Diabo) e passo 4.5 no `/vd-close` (gate do MANUAL).
+- 3 templates de `PROJECT_STATE.md` ganharam bloco `## Autoria` (~10 linhas cada).
+- Tabela de invocação implícita atualizada: `/vd-plan` agora tem 1 sub-comando, `/vd-close` agora tem 1 sub-comando.
+
+### Backward compatible / Sem quebra de compatibilidade
+
+- Bloco `## Autoria` em `PROJECT_STATE.md` é opt-in. Quem não preencher, comportamento é zero (zero header).
+- `/vd-devils-advocate` tem opt-out via flag. Decisões triviais auto-skip.
+- `/vd-manual` tem opt-out via `--no-manual`.
+- Total de comandos formais: continua 12. Sub-comandos (4.5) são internos.
+
+### Inspired by / Inspirado por
+
+- **Dante Testa — Prompt Mestre WordPress v1.14.0** (jul/2026) — features 1 e 3.
+- **Gary Klein — "Performing a Project Premortem"** (HBR, set/2007) — feature 2.
+- **Atul Gawande — "The Checklist Manifesto"** (2009) — feature 2.
+- **LGPD Art. 37** (Brasil, 2020) — feature 1.
+- **EU AI Act Art. 12** (Europa, 2024) — feature 1.
+
+[1.9.0]: https://github.com/4pixeltechBR/VibeDev/releases/tag/v3.8.0
+
+---
+
 ## [1.4.0] — 2026-07-10
 
 ### Added / Adicionado
