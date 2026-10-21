@@ -16,16 +16,16 @@
 
 | Component | Role | When it triggers |
 |---|---|---|
-| **[VibeDev](./vibedev/)** | Development cycle orchestrator. Defines phases, plans, gates, and post-mortems. | Every project session. |
-| **[VibeShield](./vibeshield/)** | Security auditor. Detects authentication, database, API, and deploy actions. | Automatically via triggers G1-G7. |
+| **[VibeDev](./vibedev/)** | Development cycle orchestrator. Defines the next step, the scope, and when to stop. | When `PROJECT_STATE.md` exists, or the user asks to govern the build. |
+| **[VibeShield](./vibeshield/)** | Security auditor for authentication, secrets, payment, personal data, and deploy. | When that change is hard to undo and the skill is installed. |
 
 ### 🧭 Two Modes of Operation
 
 The ecosystem automatically detects user profile via the `modo_usuario` field in `PROJECT_STATE.md`:
 - **`modo_usuario: tecnico`** (default): Formal risk registers, C1-C8 vulnerability categories, and OK/REVIEW/BLOCK verdicts.
-- **`modo_usuario: leigo`** (Layman Mode): Auto-translated jargon (Glossary), mandatory cost estimation (Cost Guard), and `/vd-kill` for graceful exit.
+- **`modo_usuario: leigo`** (Layman Mode): plain language. Cost shows up only when a choice will send a monthly bill. `/vd-kill` when the person wants to stop.
 
-*Note: The written state in `PROJECT_STATE.md` always remains technical. Layman Mode only simplifies the conversational rendering.*
+*Note: Layman mode changes how the assistant speaks. The layman state template is already in plain language.*
 
 ### 🆕 What's new in v3.1.0
 
@@ -79,14 +79,6 @@ The ecosystem automatically detects user profile via the `modo_usuario` field in
   - **`vibeshield-code-review` skill** at `vibeshield/commands/code-review.md`. User-invoked. Review de diff/PR contra 2 eixos: **Standards** + **Spec**. Inspired by `code-review` de mattpocock/skills, mas adaptado pra revisar contra `PROJECT_STATE.md`.
   - **`vibeshield/.out-of-scope/`** — 6 documents explaining what VibeShield does NOT do (pentest, replace DPO, replace SAST, runtime race conditions, transitive deps, replace VibeDev).
 
-### 🆕 What's new in v3.10.0 (low friction)
-
-- The skill loaded every session is now a short protocol (about 6 KB). References open only when a decision needs them.
-- A new project asks up to four questions in one message, then builds the smallest visible slice.
-- Existing code gets three rescue questions and one fix for this week.
-- Cost, country mode, scaffold, premortem, and VibeShield run only for hard-to-undo choices: login, payment, personal data, publish, a database that already has data, or irreversible delete.
-- Speaking Portuguese no longer turns Country Mode on by itself.
-
 ### 🆕 What's new in v3.7.0 (3rd Satellite Skill — `/vd-arch-review`)
 
 - 🏛️ **`/vd-arch-review` command** — 3ª skill satélite da família VibeDev, user-invoked, para devs. See `vibedev/commands/vd-arch-review.md`. 3 sub-comandos:
@@ -99,12 +91,20 @@ The ecosystem automatically detects user profile via the `modo_usuario` field in
 - 🛠️ **Vocabulário de mattpocock/skills `codebase-design`** (deep modules, seams, adapters) referenciado.
 - 📚 **Inspirado em Sandeco Macedo (arXiv:2607.00038)** escada de 5 níveis, adaptada pra 3.
 
+### 🆕 What's new in v3.10.0 (low friction)
+
+- The skill loaded every session is now a short protocol (about 6 KB). References open only when a decision needs them.
+- A new project asks up to four questions in one message, then builds the smallest visible slice.
+- Existing code gets three rescue questions and one fix for this week.
+- Cost, country mode, scaffold, premortem, and VibeShield run only for hard-to-undo choices: login, payment, personal data, publish, a database that already has data, or irreversible delete.
+- Speaking Portuguese no longer turns Country Mode on by itself.
+
 ### 🛠️ How to Start
 
-1. Install the skills in your AI environment (see [INSTALL.md](./INSTALL.md)).
-2. Initialize your project with `/vd-start`.
-3. Follow the cycle: `/vd-plan` ➔ approval ➔ `/vd-build` ➔ `/vd-check`.
-4. VibeShield will trigger automatically when security-sensitive code is touched.
+1. Install the skills (see [INSTALL.md](./INSTALL.md)).
+2. New idea: up to four questions in one message, then the smallest visible slice. Existing code: three rescue questions, then this week's fix.
+3. The cycle stays `/vd-plan` ➔ approval ➔ `/vd-build` ➔ `/vd-check`.
+4. VibeShield runs when the change touches login, payment, personal data, or publish.
 
 ---
 
@@ -120,16 +120,16 @@ O **VibeDev** é um framework leve e rigoroso de governança para desenvolviment
 
 | Componente | Papel | Quando entra |
 |---|---|---|
-| **[VibeDev](./vibedev/)** | Orquestrador de ciclo de desenvolvimento. Define fases, planos, gates e post-mortems. | Em toda sessão do projeto. |
-| **[VibeShield](./vibeshield/)** | Auditor de segurança. Detecta ações de autenticação, banco de dados, API e deploy. | Automaticamente via gatilhos G1-G7. |
+| **[VibeDev](./vibedev/)** | Orquestrador do ciclo. Define o próximo passo, o escopo e quando parar. | Quando existe `PROJECT_STATE.md`, ou quando a pessoa pede governança. |
+| **[VibeShield](./vibeshield/)** | Auditor de segurança para login, segredo, pagamento, dado pessoal e publicação. | Quando essa mudança é difícil de desfazer e a skill está instalada. |
 
 ### 🧭 Dois Modos de Operação
 
 O ecossistema detecta automaticamente o perfil do usuário através do campo `modo_usuario` em `PROJECT_STATE.md`:
 - **`modo_usuario: tecnico`** (padrão): Registro de riscos formal, categorias de vulnerabilidade C1-C8 e vereditos OK/REVISAR/BLOQUEAR.
-- **`modo_usuario: leigo`**: Jargão traduzido automaticamente (Glossário), estimativa de custo obrigatória (Guarda de Custo), e `/vd-kill` pra encerramento digno.
+- **`modo_usuario: leigo`**: linguagem simples. Custo só quando a escolha vai gerar conta mensal. `/vd-kill` quando a pessoa quer parar.
 
-*Nota: O estado persistido em `PROJECT_STATE.md` continua técnico. O Modo Leigo altera apenas a renderização conversacional.*
+*Nota: O modo leigo muda o jeito de falar. O template de estado do leigo já está em linguagem simples.*
 
 ### 🆕 O que tem de novo no v3.1.0
 
@@ -183,14 +183,6 @@ O ecossistema detecta automaticamente o perfil do usuário através do campo `mo
   - **Skill `vibeshield-code-review`** em `vibeshield/commands/code-review.md`. User-invoked. Review de diff/PR contra 2 eixos: **Standards** + **Spec**. Inspirado no `code-review` de mattpocock/skills, mas adaptado pra revisar contra o `PROJECT_STATE.md`.
   - **`vibeshield/.out-of-scope/`** — 6 documentos explicando o que VibeShield NÃO faz (pentest, substituir DPO, substituir SAST, race conditions em runtime, deps transitivas, substituir VibeDev).
 
-### 🆕 O que tem de novo no v3.10.0 (baixa fricção)
-
-- A skill que carrega em toda sessão virou um protocolo curto (cerca de 6 KB). Referências abrem só quando a decisão precisa.
-- Projeto novo: até 4 perguntas numa mensagem e a menor coisa visível.
-- Código existente: 3 perguntas de resgate e um conserto desta semana.
-- Custo, Modo País, scaffold, pré-mortem e VibeShield entram só em escolha difícil de desfazer: login, pagamento, dado pessoal, publicar, banco que já tem dados, ou apagar sem volta.
-- Falar português sozinho não liga mais o Modo País.
-
 ### 🆕 O que tem de novo no v3.7.0 (3ª Skill Satélite — `/vd-arch-review`)
 
 - 🏛️ **Comando `/vd-arch-review`** — 3ª skill satélite da família VibeDev, user-invoked, pra devs. Ver `vibedev/commands/vd-arch-review.md`. 3 sub-comandos:
@@ -203,12 +195,20 @@ O ecossistema detecta automaticamente o perfil do usuário através do campo `mo
 - 🛠️ **Vocabulário de mattpocock/skills `codebase-design`** (deep modules, seams, adapters) referenciado.
 - 📚 **Inspirado em Sandeco Macedo (arXiv:2607.00038)** escada de 5 níveis, adaptada pra 3.
 
+### 🆕 O que tem de novo no v3.10.0 (baixa fricção)
+
+- A skill que carrega em toda sessão virou um protocolo curto (cerca de 6 KB). Referências abrem só quando a decisão precisa.
+- Projeto novo: até 4 perguntas numa mensagem e a menor coisa visível.
+- Código existente: 3 perguntas de resgate e um conserto desta semana.
+- Custo, Modo País, scaffold, pré-mortem e VibeShield entram só em escolha difícil de desfazer: login, pagamento, dado pessoal, publicar, banco que já tem dados, ou apagar sem volta.
+- Falar português sozinho não liga mais o Modo País.
+
 ### 🛠️ Como Começar
 
-1. Instale as skills no seu ambiente de IA (veja [INSTALL.md](./INSTALL.md)).
-2. Inicie o projeto com `/vd-start`.
-3. Siga o ciclo: `/vd-plan` ➔ aprovação ➔ `/vd-build` ➔ `/vd-check`.
-4. A VibeShield é ativada sozinha quando código sensível for detectado.
+1. Instale as skills (veja [INSTALL.md](./INSTALL.md)).
+2. Ideia nova: até 4 perguntas numa mensagem e a menor coisa visível. Código existente: 3 perguntas de resgate e o conserto desta semana.
+3. O ciclo continua `/vd-plan` ➔ aprovação ➔ `/vd-build` ➔ `/vd-check`.
+4. A VibeShield entra quando a mudança toca login, pagamento, dado pessoal ou publicação.
 
 ---
 
