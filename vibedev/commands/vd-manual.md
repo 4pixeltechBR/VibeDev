@@ -1,5 +1,7 @@
 # /vd-manual
 
+> Não rode no `/vd-close`. Só quando a pessoa pedir `/vd-manual`. `SKILL.md` vence.
+
 > 🇧🇷 PT-BR · 🇺🇸 EN follows
 >
 > Sub-comando do `/vd-close`. Gera um `MANUAL.md` automático baseado no

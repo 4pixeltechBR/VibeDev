@@ -2,7 +2,7 @@
 
 > 🇺🇸 English follows; 🇧🇷 Português abaixo.
 >
-> **Versão:** 3.7.0 (VibeDev v1.8.0 + VibeShield v2.0.0 + 12º comando `/vd-arch-review`)
+> **Versão:** 3.10.0 (VibeDev v1.8.0 + VibeShield v2.0.0 + 12º comando `/vd-arch-review`)
 > **Auditado em:** 2026-07-25
 >
 > O ecossistema VibeDev tem **3 skills** que podem ser instaladas juntas ou separadas:

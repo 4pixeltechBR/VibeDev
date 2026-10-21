@@ -1,5 +1,7 @@
 # Painel Visual de Progresso — `/vd-status`
 
+> Não renderize no `/vd-status`. O padrão são 3 linhas. Abra este painel só se a pessoa pedir. `SKILL.md` vence.
+
 > Render alternativo do `/vd-status` quando `modo_usuario: leigo`.
 > Substitui o formato 4-linhas técnico por uma representação visual
 > mais intuitiva do estado do projeto.

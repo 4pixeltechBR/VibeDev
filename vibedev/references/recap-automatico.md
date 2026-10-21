@@ -1,5 +1,7 @@
 # Recap Automático — Quando o Leigo Volta Depois de Dias Sumido
 
+> Não dispare este painel. Depois de 7 dias, uma linha: seguir do próximo passo, revisar, ou parar. O render abaixo só se ela escolher revisar. `SKILL.md` vence.
+
 > O leigo larga o projeto uns dias. Volta sem lembrar onde parou.
 > Sem recap, a primeira sessão é perdida relendo estado. Com recap,
 > o framework lê, resume em linguagem humana, e pergunta: continua ou

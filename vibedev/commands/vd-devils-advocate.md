@@ -1,5 +1,10 @@
 # /vd-devils-advocate
 
+> Protocolo vigente está no `SKILL.md`. Este arquivo é o formato longo.
+> Se divergir, `SKILL.md` vence.
+
+Rode só numa decisão de risco (login, pagamento, dado pessoal, publicar, banco que já tem dados, apagar sem volta). Você escreve 3 riscos, 1 contradição e 1 ângulo cego. A pessoa responde "aceito" ou "para". Não bloqueie em cinco checkboxes. Decisão reversível não passa por aqui.
+
 > 🇧🇷 PT-BR · 🇺🇸 EN follows
 >
 > Sub-comando do `/vd-plan`. Roda um pré-mortem na decisão ANTES de quebrar

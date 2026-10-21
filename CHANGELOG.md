@@ -8,6 +8,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ---
 
+## [3.10.0] — 2026-10-21
+
+Protocolo curto no `vibedev/SKILL.md`. Ajuda (custo, país, scaffold, pré-mortem, VibeShield) só em decisão difícil de desfazer. Detalhe em `vibedev/CHANGELOG.md`.
+
+
 ## [3.4.0] — 2026-07-11
 
 ### Added / Adicionado

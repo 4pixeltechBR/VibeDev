@@ -1,5 +1,9 @@
 # Modo País — Contexto Local Automático por País
 
+> Protocolo vigente está no `SKILL.md`. Não leia este arquivo inteiro.
+
+Abra só a seção do país, e só quando o passo tocar Pix (ou outro meio local), domínio, lei de dados ou moeda. Idioma da conversa sozinho não ativa. Português sobre um produto em inglês continua sem Modo País. Não varra sinais a cada mensagem.
+
 > Detecção automática do país do **desenvolvedor** baseado em sinais da
 > sessão (idioma, moeda, fuso, domínio TLD, referências culturais).
 > Carrega contexto local: idioma da UI, moeda, meios de pagamento,

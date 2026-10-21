@@ -65,12 +65,11 @@ Marcação: `[➔]` fase atual · `[x]` concluída · `[ ]` futura
 
 ---
 
-## Custo mensal estimado (obrigatório fechar na Fase 3)
+## Custo mensal estimado
 
-> Antes de escolher as ferramentas, você e a IA precisam fechar o custo
-> estimado de manter o produto funcionando DEPOIS de pronto. Sem isso,
-> o projeto pode crescer e o susto da conta chegar no fim do mês.
-> Referência de valores: `references/estimativa-custos.md`.
+> Preencha quando uma escolha for gerar conta mensal (banco, login de terceiros,
+> publicar, pagamento). A fatia inicial pode ficar em branco.
+> Referência: só a categoria do projeto em `references/estimativa-custos.md`.
 
 | Porte de usuários | Custo estimado (BRL/mês) |
 |---|---|
@@ -83,8 +82,8 @@ Marcação: `[➔]` fase atual · `[x]` concluída · `[ ]` futura
 - **Premissas:** 
 - **Riscos de explosão de custo:** 
 
-> ⚠️ Gate da Fase 3 → 4 **não passa** sem essa tabela preenchida.
-> Se quiser pular, registre no log de decisões que pulou (decisão humana).
+> Antes de "Colocar no ar", a tabela está preenchida ou o log diz que a pessoa pulou.
+> Porte de 1–10, 10–100 e 100–1000. Se o produto não tem conta mensal, escreva R$ 0 e siga.
 
 ---
 

@@ -1,5 +1,9 @@
 # Onboarding Tour — Primeira Visita do Leigo
 
+> Não rode este tour. O `SKILL.md` substituiu as 3 mensagens pela Fatia:
+> até 4 perguntas numa mensagem, depois a menor coisa visível.
+> O texto abaixo ficou como histórico. Se divergir, `SKILL.md` vence.
+
 > Tour automático de 3 mensagens curtas mostrado **só na primeira sessão**
 > de um projeto, **só** quando `modo_usuario: leigo`. Não é tutorial:
 > é reconhecimento. O leigo precisa sentir que tem alguém explicando

@@ -1,5 +1,7 @@
 # Anti-Feature-Creep — Detecção e Contenção
 
+> Ideia fora do passo ativo: uma linha no backlog e continue. Sem menu de 3 opções. Login, pagamento, dado pessoal ou publicar param e seguem o `SKILL.md`.
+
 > Mecanismo de defesa contra expansão não-declarada do escopo durante o `/vd-build`.
 > Inspirado no anti-pattern "specification gaming" e "feature creep" da literatura
 > de engenharia de software — e na regra universal do VibeDev:
