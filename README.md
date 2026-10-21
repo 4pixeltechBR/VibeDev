@@ -79,6 +79,14 @@ The ecosystem automatically detects user profile via the `modo_usuario` field in
   - **`vibeshield-code-review` skill** at `vibeshield/commands/code-review.md`. User-invoked. Review de diff/PR contra 2 eixos: **Standards** + **Spec**. Inspired by `code-review` de mattpocock/skills, mas adaptado pra revisar contra `PROJECT_STATE.md`.
   - **`vibeshield/.out-of-scope/`** — 6 documents explaining what VibeShield does NOT do (pentest, replace DPO, replace SAST, runtime race conditions, transitive deps, replace VibeDev).
 
+### 🆕 What's new in v3.10.0 (low friction)
+
+- The skill loaded every session is now a short protocol (about 6 KB). References open only when a decision needs them.
+- A new project asks up to four questions in one message, then builds the smallest visible slice.
+- Existing code gets three rescue questions and one fix for this week.
+- Cost, country mode, scaffold, premortem, and VibeShield run only for hard-to-undo choices: login, payment, personal data, publish, a database that already has data, or irreversible delete.
+- Speaking Portuguese no longer turns Country Mode on by itself.
+
 ### 🆕 What's new in v3.7.0 (3rd Satellite Skill — `/vd-arch-review`)
 
 - 🏛️ **`/vd-arch-review` command** — 3ª skill satélite da família VibeDev, user-invoked, para devs. See `vibedev/commands/vd-arch-review.md`. 3 sub-comandos:
@@ -182,6 +190,14 @@ O ecossistema detecta automaticamente o perfil do usuário através do campo `mo
 - 🛡️ **VibeShield v2.0.0** — bump de major version por mudança de escopo.
   - **Skill `vibeshield-code-review`** em `vibeshield/commands/code-review.md`. User-invoked. Review de diff/PR contra 2 eixos: **Standards** + **Spec**. Inspirado no `code-review` de mattpocock/skills, mas adaptado pra revisar contra o `PROJECT_STATE.md`.
   - **`vibeshield/.out-of-scope/`** — 6 documentos explicando o que VibeShield NÃO faz (pentest, substituir DPO, substituir SAST, race conditions em runtime, deps transitivas, substituir VibeDev).
+
+### 🆕 O que tem de novo no v3.10.0 (baixa fricção)
+
+- A skill que carrega em toda sessão virou um protocolo curto (cerca de 6 KB). Referências abrem só quando a decisão precisa.
+- Projeto novo: até 4 perguntas numa mensagem e a menor coisa visível.
+- Código existente: 3 perguntas de resgate e um conserto desta semana.
+- Custo, Modo País, scaffold, pré-mortem e VibeShield entram só em escolha difícil de desfazer: login, pagamento, dado pessoal, publicar, banco que já tem dados, ou apagar sem volta.
+- Falar português sozinho não liga mais o Modo País.
 
 ### 🆕 O que tem de novo no v3.7.0 (3ª Skill Satélite — `/vd-arch-review`)
 
