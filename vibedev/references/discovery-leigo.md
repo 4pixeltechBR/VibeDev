@@ -1,5 +1,7 @@
 # Discovery Leigo — Como ajudar a transformar ideia vaga em projeto real
 
+> Não rode 4 rodadas. As 4 perguntas vão numa mensagem só (Fatia, no `SKILL.md`). Quem já respondeu não responde de novo. O texto abaixo é histórico.
+
 > Framework de conversa pra quando o usuário chega com uma ideia solta,
 > sem saber ainda o que precisa decidir. Roda ANTES do `/vd-start` formal.
 > Pode ser ativado por:

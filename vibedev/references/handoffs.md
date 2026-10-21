@@ -1,5 +1,7 @@
 # Handoffs — VibeDev ↔ Skills-Satélite
 
+> Não abra este arquivo no boot. Chame a skill `vibeshield` só se ela estiver instalada e o passo for risco: login, segredo, pagamento, dado pessoal ou publicar. Sem a skill, siga o passo e registre em uma linha que a checagem de segurança ficou para a pessoa.
+
 > Este documento lista as skills-satélite que podem ser disparadas durante o ciclo VibeDev. Cada entrada é uma linha de instrução: **QUANDO** chamar, **O QUE** delegar, **COMO** integrar de volta.
 
 **Princípio único**: a VibeDev continua sendo o sistema nervoso central. Skills-satélite só entram em pontos específicos do ciclo e devolvem resultado pra `PROJECT_STATE.md`.

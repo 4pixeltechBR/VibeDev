@@ -9,14 +9,12 @@
 
 ## Como usar (instrução pra IA)
 
-1. Ao iniciar sessão, leia `modo_usuario` no `PROJECT_STATE.md`.
-2. Se for `leigo`, este arquivo é **obrigatório** em TODA resposta.
-3. Ao escrever qualquer parágrafo técnico, passe mentalmente pela tabela abaixo.
-4. Se aparecer termo mapeado, use a versão humana.
-5. Se aparecer termo novo (não listado aqui), **traduza inline na hora** e adicione
-   à tabela depois — sem perguntar, é trabalho seu.
-6. Mantenha nomes próprios de tecnologia (Python, Postgres, Vercel, Stripe) como
-   estão — o problema não é o nome, é o conceito por trás.
+O `SKILL.md` manda não abrir este arquivo no boot. Use a tabela quando uma frase sairia técnica e você não achar um jeito simples.
+
+1. No modo `leigo`, fale simples o tempo todo. Não anuncie que está traduzindo.
+2. Termo novo: traduza na frase e acrescente em "Palavras" no `PROJECT_STATE.md` do projeto.
+3. Não edite este arquivo durante um projeto. Ele é compartilhado por todos os projetos.
+4. Nomes de tecnologia ficam (Python, Postgres, Vercel, Stripe). O que pesa é o conceito.
 
 ---
 

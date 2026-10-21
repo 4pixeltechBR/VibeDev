@@ -3,6 +3,27 @@
 All notable changes to this project are documented here.  
 Todas as mudanças notáveis neste projeto são documentadas aqui.
 
+---
+
+## [3.10.0] — 2026-10-21
+
+### Changed / Modificado
+
+- `SKILL.md` virou protocolo curto. Referências e comandos abrem sob demanda, não no boot.
+- Projeto novo segue a Fatia: até 4 perguntas numa mensagem e a menor coisa visível. O tour de 3 mensagens não roda.
+- Projeto com código entra no Resgate de 3 perguntas. A arqueologia completa fica no modo técnico ou sob pedido.
+- `/vd-build` executa o plano aprovado inteiro e para em risco, falha ou no fim.
+- Pré-mortem, custo, Modo País, scaffold e VibeShield entram só em decisão de risco (login, pagamento, dado pessoal, publicar, banco com dados, apagar sem volta).
+- Idioma da conversa sozinho não liga o Modo País.
+- Termo novo do glossário vai para "Palavras" no `PROJECT_STATE.md`. A skill instalada não é editada no meio do projeto.
+- No modo leigo, o pré-mortem é escrito pelo agente. A pessoa responde "aceito" ou "para".
+- Gatilho da skill deixou de ser "quero construir" / "novo projeto".
+
+### Notes
+
+- README e INSTALL passam a apontar para 3.10.0.
+- O zip em `releases/v3.7.0` continua o pacote anterior.
+
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/).
 

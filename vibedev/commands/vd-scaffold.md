@@ -1,5 +1,9 @@
 # /vd-scaffold
 
+> Protocolo vigente está no `SKILL.md`. Se este arquivo divergir, `SKILL.md` vence.
+
+Abra só quando o passo aprovado for fundação (schema, login, pagamento, vários clientes). Gere o componente desse passo, não os quatro. Stack já escrita no estado: use essa e não refaça a triagem. No mapa leigo, fundação cabe em "Decidir como construir", não numa "Fase 3 — Arquitetura".
+
 > 🇧🇷 PT-BR · 🇺🇸 EN follows
 >
 > Motor de Fundação Técnica do VibeDev. Roda **dentro** de `/vd-build` quando

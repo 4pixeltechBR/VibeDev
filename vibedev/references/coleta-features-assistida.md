@@ -1,5 +1,7 @@
 # Coleta Assistida de Features — `/vd-plan` sem Travar o Leigo
 
+> Não abra 3 rodadas no `/vd-plan`. O que faltar cabe numa mensagem. `SKILL.md` vence. O texto abaixo é histórico.
+
 > Substituir o pedido aberto "liste 10 features testáveis" por conversa
 > guiada que produz a mesma lista sem o leigo travar.
 

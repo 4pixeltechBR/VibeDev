@@ -1,5 +1,7 @@
 # Estimativa de Tempo de Construção — Referência VibeDev
 
+> Não apresente esta tabela no início do projeto. Abra só se a pessoa perguntar quanto tempo falta. Fale um intervalo, sem data prometida. `SKILL.md` vence.
+
 > Tabela de referência pra calibrar expectativa ANTES de começar um projeto.
 > Carregada automaticamente no início do `/vd-start` em modo leigo.
 > Apresentada como histórico de leigos anteriores — sem promessa.

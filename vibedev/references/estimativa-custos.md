@@ -1,5 +1,7 @@
 # Estimativa de Custo Mensal — Referência VibeDev
 
+> Não bloqueie fase por esta tabela. Abra só a categoria do projeto, quando a escolha gerar conta mensal. Use os portes 1–10, 10–100 e 100–1000. `SKILL.md` vence.
+
 > Tabela de referência pra calcular custo recorrente ANTES de escolher stack.
 > Carregada automaticamente na Fase 3 (Arquitetura), antes do gate pra Fase 4.
 > Modo leigo: traduz valores em reais, sem jargão de pricing tier.
